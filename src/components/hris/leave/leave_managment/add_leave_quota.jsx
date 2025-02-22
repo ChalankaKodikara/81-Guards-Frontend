@@ -20,7 +20,7 @@ const AddLeaveQuotaForm = ({ onSuccess }) => {
 
     try {
       const response = await 
-      fetch(`http://localhost:8599/v1/hris/leave/addEmployeeLeaveCount`, {
+      fetch(`http://localhost:8590/v1/hris/leave/addEmployeeLeaveCount`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

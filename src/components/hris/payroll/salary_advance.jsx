@@ -39,7 +39,7 @@ const AllowanceComponent = () => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:8599/v1/hris/payroll/getAllEmployeesWithSalaryAdvanceStatus`
+        `http://localhost:8590/v1/hris/payroll/getAllEmployeesWithSalaryAdvanceStatus`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch employee data");
@@ -137,7 +137,7 @@ const AllowanceComponent = () => {
         setIsLoading(true); // Indicate loading state
   
         const response = await fetch(
-          `http://localhost:8599/v1/hris/payroll/salary-advance/${employee.employee_no}`
+          `http://localhost:8590/v1/hris/payroll/salary-advance/${employee.employee_no}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch salary advance details");
@@ -209,7 +209,7 @@ const AllowanceComponent = () => {
 
       // Send the POST request
       const response = await fetch(
-        `http://localhost:8599/v1/hris/payroll/salary-advance`,
+        `http://localhost:8590/v1/hris/payroll/salary-advance`,
         {
           method: "POST",
           headers: {
@@ -278,7 +278,7 @@ const AllowanceComponent = () => {
       };
       console.log("sentdata", payload);
       const response = await fetch(
-        `http://localhost:8599/v1/hris/payroll/salary-advance/${selectedEmployee.salaryAdvance.id}`,
+        `http://localhost:8590/v1/hris/payroll/salary-advance/${selectedEmployee.salaryAdvance.id}`,
         {
           method: "PUT",
           headers: {
@@ -327,7 +327,7 @@ const AllowanceComponent = () => {
       };
 
       const response = await fetch(
-        `http://localhost:8599/v1/hris/payroll/updateallowancetoemployee`,
+        `http://localhost:8590/v1/hris/payroll/updateallowancetoemployee`,
         {
           method: "PUT",
           headers: {

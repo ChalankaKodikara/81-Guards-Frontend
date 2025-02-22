@@ -52,7 +52,7 @@ const AllowanceComponent = () => {
       }
 
       const response = await fetch(
-        `http://localhost:8599/v1/hris/payroll/allowance-status?${params}`
+        `http://localhost:8590/v1/hris/payroll/allowance-status?${params}`
       );
 
       if (!response.ok) {
@@ -152,7 +152,7 @@ const AllowanceComponent = () => {
         });
 
         const response = await fetch(
-          `http://localhost:8599/v1/hris/payroll/value?${params}`
+          `http://localhost:8590/v1/hris/payroll/value?${params}`
         );
         if (!response.ok) {
           throw new Error(`Failed to fetch value: ${response.statusText}`);
@@ -212,7 +212,7 @@ const AllowanceComponent = () => {
       };
 
       const response = await fetch(
-        `http://localhost:8599/v1/hris/payroll/addallowancetoemployee`,
+        `http://localhost:8590/v1/hris/payroll/addallowancetoemployee`,
         {
           method: "POST",
           headers: {
@@ -258,7 +258,7 @@ const AllowanceComponent = () => {
       };
 
       const response = await fetch(
-        `http://localhost:8599/v1/hris/payroll/updateallowancetoemployee`,
+        `http://localhost:8590/v1/hris/payroll/updateallowancetoemployee`,
         {
           method: "PUT",
           headers: {
@@ -298,7 +298,7 @@ const AllowanceComponent = () => {
       };
 
       const response = await fetch(
-        `http://localhost:8599/v1/hris/payroll/updateallowancetoemployee`,
+        `http://localhost:8590/v1/hris/payroll/updateallowancetoemployee`,
         {
           method: "PUT",
           headers: {

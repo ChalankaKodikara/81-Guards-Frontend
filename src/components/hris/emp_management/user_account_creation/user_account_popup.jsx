@@ -15,7 +15,7 @@ const UserAccountPopup = ({ onClose }) => {
     const fetchRoles = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8599/v1/hris/user/roles`
+          `http://localhost:8590/v1/hris/user/roles`
         );
         if (response.ok) {
           const data = await response.json();
@@ -46,7 +46,7 @@ const UserAccountPopup = ({ onClose }) => {
     try {
       // Send the POST request
       const response = await fetch(
-        `http://localhost:8599/v1/hris/user/createUser`,
+        `http://localhost:8590/v1/hris/user/createUser`,
         {
           method: "POST",
           headers: {

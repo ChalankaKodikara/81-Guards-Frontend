@@ -11,14 +11,14 @@
 
 //   const API_URL =
 //     process.env.REACT_APP_FRONTEND_URL ||
-//     "http://localhost:8599"; // Fallback to default URL if not provided
+//     "http://localhost:8590"; // Fallback to default URL if not provided
 
 //   // Fetch Employee Data using GET request
 //   const fetchEmployeeData = async () => {
 //     const authToken = Cookies.get("auth_token"); // Assuming the auth token is stored as 'auth_token' in the cookies
 //     try {
 //       const response = await fetch(
-//         `http://localhost:8599/v1/hris/employees/getemployeebasicdetails`,
+//         `http://localhost:8590/v1/hris/employees/getemployeebasicdetails`,
 //         {
 //           headers: {
 //             Authorization: `Bearer ${authToken}`, // Add token to headers if available
@@ -105,7 +105,7 @@
 //     // Perform the actual POST request to save data
 //     try {
 //       const authToken = Cookies.get("auth_token"); // Get auth token from cookies
-//       const response = await fetch(`http://localhost:8599/v1/hris/serviceCharge/addServiceCharge`, {
+//       const response = await fetch(`http://localhost:8590/v1/hris/serviceCharge/addServiceCharge`, {
 //         method: "POST",
 //         headers: {
 //           "Content-Type": "application/json",

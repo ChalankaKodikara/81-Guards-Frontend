@@ -37,9 +37,9 @@ const Leave_approve_table = () => {
     // Determine the correct endpoint based on user type
     const endpoint =
       userType === "superadmin"
-        ? `http://localhost:8599/v1/hris/leave/getleave`
+        ? `http://localhost:8590/v1/hris/leave/getleave`
         : userType === "admin" && supervisorId
-          ? `http://localhost:8599/v1/hris/leave/GetLeaveBySupervisorId?supervisor_id=${supervisorId}`
+          ? `http://localhost:8590/v1/hris/leave/GetLeaveBySupervisorId?supervisor_id=${supervisorId}`
           : null;
 
     if (endpoint) {
@@ -103,7 +103,7 @@ const Leave_approve_table = () => {
   const fetchDepartments = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8599/v1/hris/employees/getemployeebasicdetails`
+        `http://localhost:8590/v1/hris/employees/getemployeebasicdetails`
       );
       const result = await response.json();
       // Extract unique department names

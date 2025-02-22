@@ -26,7 +26,7 @@ const ViewLeaveTable = () => {
     const fetchLeaveCategories = async () => {
         try {
             const response = await fetch(
-                `http://localhost:8599/v1/hris/leave/getLeaveCategory`
+                `http://localhost:8590/v1/hris/leave/getLeaveCategory`
             );
             const result = await response.json();
             if (result.success) {
@@ -43,7 +43,7 @@ const ViewLeaveTable = () => {
     const fetchEmploymentTypes = async () => {
         try {
             const response = await fetch(
-                "http://localhost:8599/v1/hris/employmentType/all"
+                "http://localhost:8590/v1/hris/employmentType/all"
             );
             const result = await response.json();
             if (result.success) {

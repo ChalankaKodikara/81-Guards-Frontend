@@ -16,7 +16,7 @@ const EmployeeEdit = ({ employeeNo, onClose }) => {
       try {
         console.log(`Fetching employee data for: ${employeeNo}`);
         const response = await fetch(
-          `http://localhost:8599/v1/81guards/employees/employee?employee_no=${employeeNo}`
+          `http://localhost:8590/v1/81guards/employees/employee?employee_no=${employeeNo}`
         );
         if (!response.ok) throw new Error("Failed to fetch employee data");
 
@@ -52,7 +52,7 @@ const EmployeeEdit = ({ employeeNo, onClose }) => {
     try {
       console.log("Updating employee data:", employeeData);
       const response = await fetch(
-        `${API_URL}/v1/81guards/employees/employee?employee_no=${employeeNo}`,
+        `http://localhost:8590/v1/81guards/employees/employee?employee_no=${employeeNo}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

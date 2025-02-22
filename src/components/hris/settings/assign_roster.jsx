@@ -27,7 +27,7 @@ const AssignRooster = () => {
   useEffect(() => {
     const fetchTimetableData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8599/v1/hris/timetable/gettimetable`);
+        const response = await axios.get(`http://localhost:8590/v1/hris/timetable/gettimetable`);
         setTimetables(response.data);
       } catch (error) {
         console.error("Error fetching timetable data:", error);
@@ -35,7 +35,7 @@ const AssignRooster = () => {
     };
     const fetchEmployeeData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8599/v1/hris/employees/getemployeebasicdetails`);
+        const response = await axios.get(`http://localhost:8590/v1/hris/employees/getemployeebasicdetails`);
         setEmployeeData(response.data);
         setFilteredEmployeeData(response.data); // Set filtered data initially
       } catch (error) {
@@ -98,7 +98,7 @@ const AssignRooster = () => {
   useEffect(() => {
     const fetchEmployeeRosterData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8599/v1/hris/timetable/getemployeeswithroster`);
+        const response = await axios.get(`http://localhost:8590/v1/hris/timetable/getemployeeswithroster`);
         // Ensure the data structure matches your expectations
         if (response.data && response.data.employeesWithRosters) {
           // Map the response data into an array if it's not already
@@ -202,7 +202,7 @@ const AssignRooster = () => {
     setShowViewRosterModal(true); // Open modal immediately
     try {
       const response = await axios.get(
-        `http://localhost:8599/v1/hris/timetable/getemployeerosterdetails`,
+        `http://localhost:8590/v1/hris/timetable/getemployeerosterdetails`,
         { params: { employee_no: employee.employee_no } }
       );
       console.log("Roster details response:", response.data); // Debugging log
@@ -225,7 +225,7 @@ const AssignRooster = () => {
   const handleDeleteRoster = async (scheduleID) => {
     try {
       const response = await axios.delete(
-        `http://localhost:8599/v1/hris/timetable/deleteEmployeeRosterDetails`,
+        `http://localhost:8590/v1/hris/timetable/deleteEmployeeRosterDetails`,
         { params: { schedule_id: scheduleID } }
       );
       if (response.status === 200) {
@@ -255,7 +255,7 @@ const AssignRooster = () => {
       const postData = { employees: employeesData };
 
       const response = await axios.post(
-        `http://localhost:8599/v1/hris/timetable/addrostertimetable`, // Updated endpoint
+        `http://localhost:8590/v1/hris/timetable/addrostertimetable`, // Updated endpoint
         postData
       );
 

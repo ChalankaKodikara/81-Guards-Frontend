@@ -14,7 +14,7 @@ const LeaveManagement = () => {
   useEffect(() => {
     // Fetch employee leave counts
     fetch(
-      "http://localhost:8599/v1/hris/leave/GetLeaveCountstoallemployee"
+      "http://localhost:8590/v1/hris/leave/GetLeaveCountstoallemployee"
     )
       .then((response) => response.json())
       .then((data) => {

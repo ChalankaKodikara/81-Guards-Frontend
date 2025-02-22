@@ -28,7 +28,7 @@ function TimetablePopup({ timetableId, onClose }) {
   useEffect(() => {
     if (timetableId) {
       fetch(
-        `http://localhost:8599/v1/hris/timetable/gettimetablebyid?timetableID=${timetableId}`
+        `http://localhost:8590/v1/hris/timetable/gettimetablebyid?timetableID=${timetableId}`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -54,7 +54,7 @@ function TimetablePopup({ timetableId, onClose }) {
 
           // Fetch all employee data
           fetch(
-            `http://localhost:8599/v1/hris/employees/getemployeebasicdetails`
+            `http://localhost:8590/v1/hris/employees/getemployeebasicdetails`
           )
             .then((response) => response.json())
             .then((employees) => {
@@ -118,7 +118,7 @@ function TimetablePopup({ timetableId, onClose }) {
     };
 
     fetch(
-      `http://localhost:8599/v1/hris/timetable/updatetimetable?timetableID=${timetableId}`,
+      `http://localhost:8590/v1/hris/timetable/updatetimetable?timetableID=${timetableId}`,
       {
         method: "PUT",
         headers: {

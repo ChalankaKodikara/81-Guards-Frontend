@@ -25,7 +25,7 @@ const Time_management = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:8599/v1/hris/timetable/gettimetable`);
+      const response = await fetch(`http://localhost:8590/v1/hris/timetable/gettimetable`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

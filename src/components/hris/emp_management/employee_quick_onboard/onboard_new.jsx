@@ -51,7 +51,7 @@ const EmpOnboard = () => {
     if (!validateForm()) return;
 
     try {
-      const response = await fetch(`http://localhost:8599/v1/81guards/employees/add`, {
+      const response = await fetch(`http://localhost:8590/v1/81guards/employees/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

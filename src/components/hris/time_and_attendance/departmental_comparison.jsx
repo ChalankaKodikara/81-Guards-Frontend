@@ -33,7 +33,7 @@ const Departmental_Comparison = () => {
     if (startDate && endDate) {
       try {
         const response = await fetch(
-          `http://localhost:8599/v1/hris/attendence/getDepartmentalComparisonReport?startDate=${moment(
+          `http://localhost:8590/v1/hris/attendence/getDepartmentalComparisonReport?startDate=${moment(
             startDate
           ).format("YYYY-MM-DD")}&endDate=${moment(endDate).format(
             "YYYY-MM-DD"

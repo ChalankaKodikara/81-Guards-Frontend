@@ -64,7 +64,7 @@ const Generatedpayrolls = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8599/v1/hris/payroll/payrollEmployees?year=${year}&month=${month}`
+        `http://localhost:8590/v1/hris/payroll/payrollEmployees?year=${year}&month=${month}`
       );
 
       const data = await response.json();
@@ -101,7 +101,7 @@ const Generatedpayrolls = () => {
     setSelectedEmployee({ employee_no, employee_fullname, employee_email }); // Store employee details
     try {
       const response = await fetch(
-        `http://localhost:8599/v1/hris/payroll/calculatepayrollbyemployee?employee_no=${employee_no}&month=${month}&year=${year}`
+        `http://localhost:8590/v1/hris/payroll/calculatepayrollbyemployee?employee_no=${employee_no}&month=${month}&year=${year}`
       );
       const data = await response.json();
 
@@ -180,7 +180,7 @@ const Generatedpayrolls = () => {
     try {
       // Trigger GET request
       const response = await fetch(
-        `http://localhost:8599/v1/hris/payroll/allActiveEmployeesPayroll?year=${year}&month=${month}`
+        `http://localhost:8590/v1/hris/payroll/allActiveEmployeesPayroll?year=${year}&month=${month}`
       );
       const data = await response.json();
 

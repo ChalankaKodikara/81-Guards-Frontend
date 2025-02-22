@@ -19,7 +19,7 @@ const HistoryLoginDetails = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8599/v1/hris/logs/login-logs"
+          "http://localhost:8590/v1/hris/logs/login-logs"
         );
         const data = await response.json();
         setHistoryData(data);

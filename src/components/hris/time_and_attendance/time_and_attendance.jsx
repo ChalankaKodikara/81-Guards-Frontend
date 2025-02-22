@@ -37,7 +37,7 @@ const Time_And_Attendance = () => {
 
         // Fetch attendance stats
         const response = await fetch(
-          `http://localhost:8599/v1/hris/employees/getAttendanceStats`
+          `http://localhost:8590/v1/hris/employees/getAttendanceStats`
         );
         const result = await response.json();
 
@@ -60,7 +60,7 @@ const Time_And_Attendance = () => {
 
         // Fetch absent workforce count with today's date as startDate and endDate
         const absentResponse = await fetch(
-          `http://localhost:8599/v1/hris/attendence/getNotAttendCount?startDate=${today}&endDate=${today}`
+          `http://localhost:8590/v1/hris/attendence/getNotAttendCount?startDate=${today}&endDate=${today}`
         );
         const absentResult = await absentResponse.json();
 
@@ -89,7 +89,7 @@ const Time_And_Attendance = () => {
 
         // Fetch late in count with today's date
         const response = await fetch(
-          `http://localhost:8599/v1/hris/attendence/getLateInCount?date=${today}`
+          `http://localhost:8590/v1/hris/attendence/getLateInCount?date=${today}`
         );
         const result = await response.json();
 

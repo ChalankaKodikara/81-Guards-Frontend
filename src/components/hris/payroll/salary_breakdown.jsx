@@ -29,7 +29,7 @@ const SalaryBreakdown = () => {
     const fetchEmployees = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8599/v1/hris/payroll/getallwithname`
+          `http://localhost:8590/v1/hris/payroll/getallwithname`
         );
         if (!response.ok) {
           throw new Error("Error fetching employee data");
@@ -49,7 +49,7 @@ const SalaryBreakdown = () => {
     // Fetch Components
     const fetchComponents = async () => {
       try {
-        const response = await fetch(`http://localhost:8599/v1/hris/payroll/columns`);
+        const response = await fetch(`http://localhost:8590/v1/hris/payroll/columns`);
         if (!response.ok) {
           throw new Error("Failed to fetch components");
         }
@@ -105,7 +105,7 @@ const SalaryBreakdown = () => {
     setSelectedEmployee(selected);
     try {
       const response = await fetch(
-        `http://localhost:8599/v1/hris/payroll/getallbyemployee?employee_no=${employee_no}`
+        `http://localhost:8590/v1/hris/payroll/getallbyemployee?employee_no=${employee_no}`
       );
 
       if (response.ok) {
