@@ -62,7 +62,7 @@ const Emp_Management = () => {
 
                 // Fetch attendance stats
                 const response = await fetch(
-                    `${API_URL}/v1/hris/employees/getAttendanceStats`
+                    `http://localhost:8599/v1/hris/employees/getAttendanceStats`
                 );
                 const result = await response.json();
 
@@ -78,7 +78,7 @@ const Emp_Management = () => {
 
                 // Fetch absent workforce count
                 const absentResponse = await fetch(
-                    `${API_URL}/v1/hris/attendence/getNotAttendCount?startDate=${today}&endDate=${today}`
+                    `http://localhost:8599/v1/hris/attendence/getNotAttendCount?startDate=${today}&endDate=${today}`
                 );
                 const absentResult = await absentResponse.json();
 
@@ -96,7 +96,7 @@ const Emp_Management = () => {
 
                 // Fetch allowance and deduction counts
                 const adResponse = await fetch(
-                    `${API_URL}/v1/hris/payroll/allowances-deductions-count`
+                    `http://localhost:8599/v1/hris/payroll/allowances-deductions-count`
                 );
                 const adResult = await adResponse.json();
 

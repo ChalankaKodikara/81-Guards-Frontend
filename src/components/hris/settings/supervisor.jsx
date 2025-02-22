@@ -26,7 +26,7 @@ const Supervisors = () => {
   }, [currentPage, itemsPerPage]);
 
   const fetchSupervisors = () => {
-    fetch(`${API_URL}/v1/hris/supervisors/getSupervisors`)
+    fetch(`http://localhost:8599/v1/hris/supervisors/getSupervisors`)
       .then((response) => response.json())
       .then((result) => {
         if (Array.isArray(result)) {
@@ -48,7 +48,7 @@ const Supervisors = () => {
     );
     if (confirmDelete) {
       fetch(
-        `${API_URL}/v1/hris/supervisors/deleteSupervisor?supervisor_id=${id}`,
+        `http://localhost:8599/v1/hris/supervisors/deleteSupervisor?supervisor_id=${id}`,
         {
           method: "DELETE",
         }

@@ -10,7 +10,7 @@ const Granted_permission_popup = ({ togglePopup, user_role }) => {
     const fetchUserPermissions = async () => {
       try {
         const response = await fetch(
-          `${API_URL}/v1/hris/user/getPermissionsByRoleId?role_id=${user_role}`
+          `http://localhost:8599/v1/hris/user/getPermissionsByRoleId?role_id=${user_role}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");

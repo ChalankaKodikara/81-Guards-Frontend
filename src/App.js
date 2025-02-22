@@ -31,7 +31,7 @@ import Reset_Pw from "./components/hris/employee/dashbaord/reset_password.jsx";
 import User_Profile from "./components/hris/employee/dashbaord/user_profile.jsx";
 import Emp_Dashboard from "./components/hris/emp_management/dashboard/dashboard.jsx";
 import Emp_details from "./components/hris/emp_management/view_emp_details/emp_details.jsx";
-import Emp_Onboard from "./components/hris/emp_management/employee_quick_onboard/emp_onboard.jsx";
+// import Emp_Onboard from "./components/hris/emp_management/employee_quick_onboard/emp_onboard.jsx";
 import Permission from "./components/hris/emp_management/permission/permission.jsx";
 import History_login_details from "./components/hris/emp_management/history_login_details/history_login_details.jsx";
 import User_account_creation from "./components/hris/emp_management/user_account_creation/user_account_creation.jsx";
@@ -42,8 +42,7 @@ import Leave_Report from "./components/hris/leave/reports/leave_report/leave_rep
 import Checkin_checkout_report from "./components/hris/time_and_attendance/checking_checkout_report.jsx";
 import LeaveRequestPopup from "./components/hris/leave/leave_request/leave_request_popup.jsx";
 import Hr_Report_Pdf from "./components/hris/leave/reports/hr_report/hr_report_pdf.jsx";
-import Modal from "./components/hris/emp_management/employee_quick_onboard/testModal.jsx";
-import Emp_details_pdf from "./components/hris/emp_management/view_emp_details/emp_details_pdf.jsx";
+// import Modal from "./components/hris/emp_management/employee_quick_onboard/testModal.jsx";
 import Departmental_Comparison from "./components/hris/time_and_attendance/departmental_comparison.jsx";
 import User_Permission from "./components/hris/settings/permission.jsx";
 import Create_User_Permission from "./components/hris/settings/create_user_permission.jsx";
@@ -55,7 +54,6 @@ import Service_Charge from "./components/hris/settings/service_charge.jsx";
 import Deignation from "./components/hris/settings/designation.jsx";
 import Supervisor from "./components/hris/settings/supervisor.jsx";
 import Onboard_new from "./components/hris/emp_management/employee_quick_onboard/onboard_new.jsx";
-import Next_Of_Kings from "./components/hris/emp_management/employee_quick_onboard/next_of_kings.jsx";
 import Branch from "./components/hris/settings/create_branch.jsx";
 import Employee_Type_Add from "./components/hris/settings/add_employee_type.jsx";
 import Salaray_Component_Management from "./components/hris/settings/salaray_component_management.jsx";
@@ -179,7 +177,7 @@ const AppContent = ({
           <Route path="/leave-reports" element={<Reports />} />
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/emp-details" element={<Emp_details />} />
-          <Route path="/emp-onboard" element={<Emp_Onboard />} />
+          {/* <Route path="/emp-onboard" element={<Emp_Onboard />} /> */}
           <Route path="/permission" element={<Permission />} />
           <Route
             path="/history-Login-Details"
@@ -210,8 +208,7 @@ const AppContent = ({
           />
           <Route path="/Leave-Request-Popup" element={<LeaveRequestPopup />} />
           <Route path="/hr-report-pdf" element={<Hr_Report_Pdf />} />
-          <Route path="/Modal-popup" element={<Modal />} />
-          <Route path="/emp_details_pdf" element={<Emp_details_pdf />} />
+          {/* <Route path="/Modal-popup" element={<Modal />} /> */}
           <Route
             path="/department-comparison"
             element={<Departmental_Comparison />}
@@ -237,7 +234,6 @@ const AppContent = ({
 
           {/* dlh updates */}
           <Route path="/onboard_new" element={<Onboard_new />} />
-          <Route path="/next-of-kings" element={<Next_Of_Kings />} />
           <Route path="/branch" element={<Branch />} />
           <Route path="/add-employee-type" element={<Employee_Type_Add />} />
           <Route path="/salaray-component-management" element={<Salaray_Component_Management />} />

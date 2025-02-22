@@ -169,7 +169,7 @@ const SalaryComponentManagement = () => {
     try {
       setIsSaving(true); // Show saving state
   
-      const response = await fetch(`${API_URL}/v1/hris/currency/update/1`, {
+      const response = await fetch(`http://localhost:8599/v1/hris/currency/update/1`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

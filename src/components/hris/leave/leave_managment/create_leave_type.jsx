@@ -19,7 +19,7 @@ const Create_Leave_Type = () => {
     const fetchEmployeeTypes = async () => {
         try {
             const response = await fetch(
-                `${API_URL}/v1/hris/leave/get-leave-name`
+                `http://localhost:8599/v1/hris/leave/get-leave-name`
             );
             const data = await response.json();
             if (data.success) {
@@ -47,7 +47,7 @@ const Create_Leave_Type = () => {
 
         try {
             const response = await fetch(
-                `${API_URL}/v1/hris/leave/add-leave-categoryName`,
+                `http://localhost:8599/v1/hris/leave/add-leave-categoryName`,
                 {
                     method: "POST",
                     headers: {
@@ -91,7 +91,7 @@ const Create_Leave_Type = () => {
 
         try {
             const response = await fetch(
-                `${API_URL}/v1/hris/leave/update-leave-category-name?id=${editType.id}`, // Pass ID as a query parameter
+                `http://localhost:8599/v1/hris/leave/update-leave-category-name?id=${editType.id}`, // Pass ID as a query parameter
                 {
                     method: "PUT",
                     headers: {
@@ -131,7 +131,7 @@ const Create_Leave_Type = () => {
 
         try {
             const response = await fetch(
-                `${API_URL}/v1/hris/leave/delete-leave-category-name?id=${typeToDelete.id}`, // Pass ID as query parameter
+                `http://localhost:8599/v1/hris/leave/delete-leave-category-name?id=${typeToDelete.id}`, // Pass ID as query parameter
                 {
                     method: "DELETE",
                 }

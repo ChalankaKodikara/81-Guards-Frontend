@@ -36,7 +36,7 @@ const Leave_Request = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_URL}/v1/hris/leave/getleave`);
+        const response = await fetch(`http://localhost:8599/v1/hris/leave/getleave`);
         const data = await response.json();
         console.log("Fetched Data:", data);
         setLeaveData(Array.isArray(data) ? data : []); // Ensure it's an array

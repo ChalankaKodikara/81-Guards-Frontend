@@ -126,7 +126,7 @@ const LeaveDataTable = ({ searchInput, setSearchInput, leaveData }) => {
 
     try {
       const response = await fetch(
-        `${API_URL}/v1/hris/leave/updateCurrentLeaveCount?employee_no=${currentLeave.employee_no}`,
+        `http://localhost:8599/v1/hris/leave/updateCurrentLeaveCount?employee_no=${currentLeave.employee_no}`,
         {
           method: "PUT",
           headers: {
@@ -159,7 +159,7 @@ const LeaveDataTable = ({ searchInput, setSearchInput, leaveData }) => {
 
     try {
       const response = await fetch(
-        `${API_URL}/v1/hris/leave/updateActualLeaveCount?employee_no=${currentLeave.employee_no}`,
+        `http://localhost:8599/v1/hris/leave/updateActualLeaveCount?employee_no=${currentLeave.employee_no}`,
         {
           method: "PUT",
           headers: {

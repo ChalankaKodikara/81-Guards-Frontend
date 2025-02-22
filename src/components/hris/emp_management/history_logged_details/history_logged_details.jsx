@@ -19,7 +19,7 @@ const History_Logged_Details = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_URL}/v1/hris/logs/audit-logs`);
+        const response = await fetch(`http://localhost:8599/v1/hris/logs/audit-logs`);
         const data = await response.json();
         setHistoryData(data);
       } catch (error) {

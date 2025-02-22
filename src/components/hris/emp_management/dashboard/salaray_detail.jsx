@@ -9,7 +9,7 @@ const SalaryOverview = ({ onDataFetched }) => {
   useEffect(() => {
     const fetchSalaryData = async () => {
       try {
-        const response = await fetch(`${API_URL}/v1/hris/payroll/getPayrollTotal`);
+        const response = await fetch(`http://localhost:8599/v1/hris/payroll/getPayrollTotal`);
         const result = await response.json();
 
         if (result.success) {

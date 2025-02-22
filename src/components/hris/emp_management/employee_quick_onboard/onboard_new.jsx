@@ -1,293 +1,177 @@
-/** @format */
-
 import React, { useState } from "react";
-import Navigator from "./navigator";
-import Personal_Doc from "./personal_doc";
-import Personal_Details from "./personal_details";
-import NextOfKings from "./next_of_kings";
-import Employment_Details from "./employment_details";
-import Bank_Details from "./bank_details";
+import { useNavigate } from "react-router-dom";
 
-import { useSelector, useDispatch } from "react-redux";
-import {
-  saveEmployeeData,
-  resetEmployeeState,
-} from "../../../../reducers/employeeSlice"; // Import saveEmployeeData
+const EmpOnboard = () => {
+  const navigate = useNavigate();
+  const API_URL = process.env.REACT_APP_BACKEND_URL;
+  const [employeeData, setEmployeeData] = useState({
+    employee_no: "",
+    name: "",
+    nic: "",
+    date_of_birth: "",
+    contact_number: "",
+    address: "",
+    employee_category: "",
+    employee_type: "",
+    department: "",
+    designation: "",
+    work_location: "",
+  });
 
-const OnboardNew = () => {
-  const API_URL = process.env.REACT_APP_FRONTEND_URL;
-  const dispatch = useDispatch();
-  const employeeData = useSelector((state) => state.employee.employee_details);
-  const [currentStep, setCurrentStep] = useState(1);
-  const [errorMessage, setErrorMessage] = useState(""); // Error message state
-  const [completedSteps, setCompletedSteps] = useState([]);
+  const [errors, setErrors] = useState({});
+  const [showPopupMessage, setShowPopupMessage] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
+  const [popupType, setPopupType] = useState(""); // "success" or "error"
 
-  const handleNextStep = (currentFormValid) => {
-    if (currentFormValid) {
-      setCompletedSteps((prevCompleted) =>
-        prevCompleted.includes(currentStep)
-          ? prevCompleted
-          : [...prevCompleted, currentStep]
-      );
-      setCurrentStep((prevStep) => prevStep + 1);
-    }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEmployeeData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: "",
+    }));
   };
 
-  const handlePrevStep = () => {
-    setCurrentStep((prevStep) => (prevStep > 1 ? prevStep - 1 : prevStep));
+  const validateForm = () => {
+    let formErrors = {};
+    Object.keys(employeeData).forEach((key) => {
+      if (!employeeData[key]) {
+        formErrors[key] = "This field is required";
+      }
+    });
+    setErrors(formErrors);
+    return Object.keys(formErrors).length === 0;
   };
 
-  const transformEmployeeData = (data) => {
-    return {
-      employee_no: data.employee_no,
-      employee_fullname: data.employee_fullname,
-      employee_name_initial: data.employee_name_initial,
-      employee_calling_name: data.employee_calling_name,
-      employee_dob: data.employee_dob,
-      employee_gender: data.employee_gender,
-      employee_marital_status: data.employee_marital_status,
-      employee_contact_no: data.employee_contact_no,
-      employee_permanent_address: data.employee_permanent_address,
-      employee_temporary_address: data.employee_temporary_address,
-      employee_email: data.employee_email,
-      personal_email: data.personal_email, // Add if exists or adjust field name
-      phone_number: data.phone_number, // Add if exists or adjust field name
-      nationality: data.employee_nationality,
-      religion: data.employee_religion,
-      working_office: data.employee_working_office,
-      branch_id: parseInt(data.branch_id, 10),
-      employment_type_id: parseInt(data.employment_type, 10), // Assuming employment_type is an ID
-      employee_dependent_details: data.employee_dependent_details.map(
-        (dep) => ({
-          employee_dependent_name: dep.employee_dependent_name,
-          employee_dependent_relationship: dep.employee_dependent_relationship,
-          employee_dependent_dob: dep.employee_dependent_dob, // Make sure this field exists
-        })
-      ),
-      date_of_appointment: data.date_of_appointment,
-      employee_basic_salary: parseFloat(data.employee_basic_salary).toFixed(2),
-      employee_active_status: data.employee_active_status,
-      employee_account_no: data.employee_account_no,
-      employee_account_name: data.employee_account_name,
-      employee_bank_name: data.employee_bank_name,
-      employee_branch_name: data.employee_branch_name,
-      department_designation_id: parseInt(data.department_designation_id, 10),
-      supervisor_id: parseInt(data.supervisor_id, 10),
-      timetable_id: parseInt(data.timetable_id, 10),
-    };
-  };
-
-  const handleSaveEmployeeData = async () => {
-    const transformedData = transformEmployeeData(employeeData);
-    console.log("send Data", transformedData);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
 
     try {
-      const response = await fetch(`${API_URL}/v1/hris/employees/addemployee`, {
+      const response = await fetch(`http://localhost:8599/v1/81guards/employees/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(transformedData),
+        body: JSON.stringify(employeeData),
       });
 
       const result = await response.json();
 
-      if (result.success) {
-        const employeeNo = result.employee_no;
-        console.log("employeeNo", employeeNo);
-
-        const bankDetailsUploadSuccess = await handleFileUploadBankDetails(
-          employeeNo
-        );
-        const personalDocsUploadSuccess = await handleFileUpload(employeeNo);
+      if (response.ok) {
+        setPopupMessage("Employee added successfully!");
+        setPopupType("success");
+        setShowPopupMessage(true);
 
         setTimeout(() => {
-          if (bankDetailsUploadSuccess && personalDocsUploadSuccess) {
-            window.alert("Employee data and all files uploaded successfully.");
+          setShowPopupMessage(false);
+          navigate("/emp-details"); // Redirect after success
+        }, 3000);
 
-            // Clear employeeSlice state
-            dispatch(resetEmployeeState());
-
-            // Option 1: Reset currentStep
-            setCurrentStep(1);
-
-            // Option 2: Refresh the page (optional)
-            // window.location.reload();
-          } else {
-            window.alert(
-              "Employee data submitted but some files failed to upload."
-            );
-          }
-        }, 2000);
+        setEmployeeData({
+          employee_no: "",
+          name: "",
+          nic: "",
+          date_of_birth: "",
+          contact_number: "",
+          address: "",
+          employee_category: "",
+          employee_type: "",
+          department: "",
+          designation: "",
+          work_location: "",
+        });
       } else {
-        const errorMessage =
-          result.error || result.message || "Failed to submit employee data";
-        setErrorMessage(errorMessage);
+        setPopupMessage(result.message || "Failed to add employee");
+        setPopupType("error");
+        setShowPopupMessage(true);
+
+        setTimeout(() => {
+          setShowPopupMessage(false);
+        }, 3000);
       }
     } catch (error) {
       console.error("Error submitting employee data:", error);
-      setErrorMessage("Error submitting employee data. Please try again.");
-    }
-  };
+      setPopupMessage("Error submitting employee data.");
+      setPopupType("error");
+      setShowPopupMessage(true);
 
-  // Handle Bank Details Upload
-  const handleFileUploadBankDetails = async (employeeNo) => {
-    const formData = new FormData();
-    const file = employeeData.employee_bank_details_uploaded_file;
-    if (file) {
-      formData.append("file", file);
-    }
-    formData.append("employee_no", employeeNo);
-
-    try {
-      const response = await fetch(
-        `${API_URL}/v1/hris/employees/uploadEmployeeBankFiles`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-
-      if (response.ok) {
-        const result = await response.json();
-        console.log("Bank Details uploaded successfully.");
-        return true; // Upload success
-      } else {
-        console.error(
-          "Bank Details failed to upload. Status:",
-          response.status
-        );
-        return false; // Upload failed
-      }
-    } catch (error) {
-      console.error("Error uploading bank details:", error);
-      return false; // Upload failed
-    }
-  };
-
-  // Handle Personal Documents Upload
-  const handleFileUpload = async (employeeNo) => {
-    const formData = new FormData();
-    console.log("employee document", employeeData.employee_personal_document);
-    if (employeeData.employee_personal_document) {
-      formData.append("files", employeeData.employee_personal_document);
-    }
-    formData.append("employee_no", employeeNo);
-
-    try {
-      const response = await fetch(
-        `${API_URL}/v1/hris/employees/uploadEmployeeFiles`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-
-      if (response.ok) {
-        const result = await response.json();
-        console.log("Personal documents uploaded successfully.");
-        return true; // Upload success
-      } else {
-        console.error(
-          "Personal Documents failed to upload. Status:",
-          response.status
-        );
-        return false; // Upload failed
-      }
-    } catch (error) {
-      console.error("Error uploading personal documents:", error);
-      return false; // Upload failed
-    }
-  };
-
-  const renderStepComponent = () => {
-    switch (currentStep) {
-      case 1:
-        return (
-          <Personal_Details
-            data={employeeData.personal_details}
-            setData={(data) =>
-              dispatch(saveEmployeeData({ personal_details: data }))
-            }
-            handleNextStep={handleNextStep}
-          />
-        );
-      case 2:
-        return (
-          <NextOfKings
-            data={employeeData.employee_dependent_details}
-            setData={(data) =>
-              dispatch(saveEmployeeData({ employee_dependent_details: data }))
-            }
-            handleNextStep={handleNextStep}
-            handlePrevStep={() => setCurrentStep((prev) => prev - 1)}
-          />
-        );
-      case 3:
-        return (
-          <Employment_Details
-            data={{
-              department_id: employeeData.department_id,
-              employee_working_office: employeeData.employee_working_office,
-              branch_id: employeeData.branch_id,
-              supervisor_id: employeeData.supervisor_id,
-              timetable_id: employeeData.timetable_id,
-              employment_type: employeeData.employment_type,
-              employee_basic_salary: employeeData.employee_basic_salary,
-              date_of_appointment: employeeData.date_of_appointment,
-              department_designation_id: employeeData.department_designation_id,
-            }} // Pass only employment details
-            setData={(data) => dispatch(saveEmployeeData(data))}
-            handleNextStep={handleNextStep}
-            handlePrevStep={() => setCurrentStep((prev) => prev - 1)}
-          />
-        );
-      case 4:
-        return (
-          <Bank_Details
-            data={{
-              employee_account_no: employeeData.employee_account_no,
-              employee_account_name: employeeData.employee_account_name,
-              employee_bank_name: employeeData.employee_bank_name,
-              employee_branch_name: employeeData.employee_branch_name,
-              employee_visa_category: employeeData.employee_visa_category,
-              employee_visa_office: employeeData.employee_visa_office,
-              employee_bank_details_uploaded_file:
-                employeeData.employee_bank_details_uploaded_file,
-            }} // Pass only bank details
-            setData={(data) => dispatch(saveEmployeeData(data))}
-            handleNextStep={handleNextStep}
-            handlePrevStep={() => setCurrentStep((prev) => prev - 1)}
-          />
-        );
-      case 5:
-        return (
-          <Personal_Doc
-            data={{
-              employee_personal_document:
-                employeeData.employee_personal_document,
-            }} // Pass only personal docs
-            setData={(data) => dispatch(saveEmployeeData(data))}
-            handleNextStep={handleSaveEmployeeData}
-            handlePrevStep={() => setCurrentStep((prev) => prev - 1)}
-            errorMessage={errorMessage}
-          />
-        );
-      default:
-        return <Personal_Details onNext={handleNextStep} />;
+      setTimeout(() => {
+        setShowPopupMessage(false);
+      }, 3000);
     }
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 h-screen">
-      <div className="col-span-1 hidden lg:block w-full sticky top-0 h-screen mt-[150px]">
-        <Navigator currentStep={currentStep} completedSteps={completedSteps} />
-      </div>
-      <div className="col-span-3 w-full overflow-y-auto shadow-lg p-8 h-[78%]">
-        {renderStepComponent()}
-      </div>
+    <div className="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md overflow-y-auto h-screen">
+      <h2 className="text-2xl font-bold mb-6">Employee Onboarding</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        {Object.keys(employeeData).map((key) => (
+          <div key={key} className="flex flex-col">
+            <label className="text-gray-700 capitalize">
+              {key.replace("_", " ")}
+            </label>
+            <input
+              type={key === "date_of_birth" ? "date" : "text"}
+              name={key}
+              value={employeeData[key]}
+              onChange={handleChange}
+              className="border p-2 rounded w-full"
+            />
+            {errors[key] && (
+              <p className="text-red-500 text-sm">{errors[key]}</p>
+            )}
+          </div>
+        ))}
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
+        >
+          Submit
+        </button>
+      </form>
+
+      {/* Popup Message */}
+      {showPopupMessage && (
+        <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded shadow-lg w-1/3 relative">
+            {/* Close Button */}
+            <button
+              onClick={() => setShowPopupMessage(false)}
+              className="absolute top-2 right-2 text-gray-500 text-xl"
+            >
+              &times;
+            </button>
+
+            {/* Header */}
+            <h2
+              className={`text-center text-xl font-bold mb-4 ${
+                popupType === "error" ? "text-red-500" : "text-green-500"
+              }`}
+            >
+              {popupType === "error" ? "Error" : "Success"}
+            </h2>
+
+            {/* Message */}
+            <p className="text-center mb-4">{popupMessage}</p>
+
+            {/* Close Button */}
+            <div className="flex justify-center">
+              <button
+                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+                onClick={() => setShowPopupMessage(false)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default OnboardNew;
+export default EmpOnboard;

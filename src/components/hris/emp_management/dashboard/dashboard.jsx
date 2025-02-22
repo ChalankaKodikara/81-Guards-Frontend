@@ -28,7 +28,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchAttendanceHistory = async () => {
       try {
-        const response = await fetch(`${API_URL}/v1/hris/employees/getAttendanceStatsForLastFiveDays`);
+        const response = await fetch(`http://localhost:8599/v1/hris/employees/getAttendanceStatsForLastFiveDays`);
         const result = await response.json();
 
         if (result.success && Array.isArray(result.data)) {
@@ -61,7 +61,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchBirthdays = async () => {
       try {
-        const response = await fetch(`${API_URL}/v1/hris/employees/get-birthdays`);
+        const response = await fetch(`http://localhost:8599/v1/hris/employees/get-birthdays`);
         const result = await response.json();
 
         if (Array.isArray(result)) {
@@ -88,7 +88,7 @@ const Dashboard = () => {
       try {
         const today = moment().format("YYYY-MM-DD");
 
-        const response = await fetch(`${API_URL}/v1/hris/employees/getAttendanceStats`);
+        const response = await fetch(`http://localhost:8599/v1/hris/employees/getAttendanceStats`);
         const result = await response.json();
 
         if (result.success) {
@@ -136,7 +136,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchPendingLeaves = async () => {
       try {
-        const response = await fetch(`${API_URL}/v1/hris/leave/getleaveapprove1`);
+        const response = await fetch(`http://localhost:8599/v1/hris/leave/getleaveapprove1`);
         const result = await response.json();
 
         if (Array.isArray(result)) {

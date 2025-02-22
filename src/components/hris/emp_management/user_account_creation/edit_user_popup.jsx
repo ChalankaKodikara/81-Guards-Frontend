@@ -24,7 +24,7 @@ const EditUserPopup = ({ user, onClose }) => {
     const fetchRoles = async () => {
       try {
         const response = await fetch(
-          `${API_URL}/v1/hris/user/roles`
+          `http://localhost:8599/v1/hris/user/roles`
         );
         if (response.ok) {
           const data = await response.json();
@@ -58,7 +58,7 @@ const EditUserPopup = ({ user, onClose }) => {
   
     try {
       const response = await fetch(
-        `${API_URL}/v1/hris/user/updateUser?id=${user.id}`,
+        `http://localhost:8599/v1/hris/user/updateUser?id=${user.id}`,
         {
           method: "PUT",
           headers: {

@@ -34,7 +34,7 @@ const Leave = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${API_URL}/v1/hris/designations/getdesignation`
+          `http://localhost:8599/v1/hris/designations/getdesignation`
         );
         const data = await response.json();
 

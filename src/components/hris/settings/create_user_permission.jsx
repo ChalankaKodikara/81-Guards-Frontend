@@ -94,7 +94,7 @@ const Create_new_permission = () => {
 
     try {
       const response = await fetch(
-        `${API_URL}/v1/hris/user/addUserRole`,
+        `http://localhost:8599/v1/hris/user/addUserRole`,
         {
           method: "POST",
           headers: {

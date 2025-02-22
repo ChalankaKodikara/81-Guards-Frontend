@@ -26,7 +26,7 @@ const Create_Loan = () => {
     // Reusable fetch function
     const fetchEmployeeTypes = async () => {
         try {
-            const response = await fetch(`${API_URL}/v1/hris/loan/loan-types`);
+            const response = await fetch(`http://localhost:8599/v1/hris/loan/loan-types`);
             const data = await response.json();
             console.log("API Response:", data); // Log the response for debugging
             setEmployeeTypes(data); // Set the entire data array directly
@@ -56,7 +56,7 @@ const Create_Loan = () => {
             if (editType) {
                 // Update Logic
                 const response = await fetch(
-                    `${API_URL}/v1/hris/loan/loan-types?id=${editType.id}`, // Pass the ID as a query parameter
+                    `http://localhost:8599/v1/hris/loan/loan-types?id=${editType.id}`, // Pass the ID as a query parameter
                     {
                         method: "PUT",
                         headers: {
@@ -80,7 +80,7 @@ const Create_Loan = () => {
             } else {
                 // Create Logic
                 const response = await fetch(
-                    `${API_URL}/v1/hris/loan/loan-types`,
+                    `http://localhost:8599/v1/hris/loan/loan-types`,
                     {
                         method: "POST",
                         headers: {
@@ -127,7 +127,7 @@ const Create_Loan = () => {
 
         try {
             const response = await fetch(
-                `${API_URL}/v1/hris/leave/update-leave-category-name?id=${editType.id}`, // Pass ID as a query parameter
+                `http://localhost:8599/v1/hris/leave/update-leave-category-name?id=${editType.id}`, // Pass ID as a query parameter
                 {
                     method: "PUT",
                     headers: {

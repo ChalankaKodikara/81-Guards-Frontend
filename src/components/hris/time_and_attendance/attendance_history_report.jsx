@@ -25,7 +25,7 @@ const Attendance_History_Report = () => {
 
       try {
         const response = await fetch(
-          `${API_URL}/v1/hris/attendence/getAttendanceHistroy?startDate=${formattedStartDate}&endDate=${formattedEndDate}`
+          `http://localhost:8599/v1/hris/attendence/getAttendanceHistroy?startDate=${formattedStartDate}&endDate=${formattedEndDate}`
         );
         const result = await response.json();
 

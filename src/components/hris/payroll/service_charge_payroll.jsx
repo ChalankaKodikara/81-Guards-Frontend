@@ -17,7 +17,7 @@ const ServiceChargeComponentManagement = () => {
 
     try {
       const response = await fetch(
-        `${API_URL}/v1/hris/serviceCharge/getServiceCharge`,
+        `http://localhost:8599/v1/hris/serviceCharge/getServiceCharge`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`, // Add token to headers

@@ -52,7 +52,7 @@ const Deduction_Component = () => {
       }
 
       const response = await fetch(
-        `${API_URL}/v1/hris/payroll/deduction-status?${params}`
+        `http://localhost:8599/v1/hris/payroll/deduction-status?${params}`
       );
 
       if (!response.ok) {
@@ -173,7 +173,7 @@ const Deduction_Component = () => {
       };
 
       const response = await fetch(
-        `${API_URL}/v1/hris/payroll/adddeductiontoemployee`,
+        `http://localhost:8599/v1/hris/payroll/adddeductiontoemployee`,
         {
           method: "POST",
           headers: {
@@ -223,7 +223,7 @@ const Deduction_Component = () => {
       };
 
       const response = await fetch(
-        `${API_URL}/v1/hris/payroll/updatedeductiontoemployee`,
+        `http://localhost:8599/v1/hris/payroll/updatedeductiontoemployee`,
         {
           method: "PUT",
           headers: {
@@ -263,7 +263,7 @@ const Deduction_Component = () => {
       };
 
       const response = await fetch(
-        `${API_URL}/v1/hris/payroll/updatedeductiontoemployee`,
+        `http://localhost:8599/v1/hris/payroll/updatedeductiontoemployee`,
         {
           method: "PUT",
           headers: {
@@ -299,7 +299,7 @@ const Deduction_Component = () => {
         });
 
         const response = await fetch(
-          `${API_URL}/v1/hris/payroll/value?${params}`
+          `http://localhost:8599/v1/hris/payroll/value?${params}`
         );
         if (!response.ok) {
           throw new Error(`Failed to fetch value: ${response.statusText}`);

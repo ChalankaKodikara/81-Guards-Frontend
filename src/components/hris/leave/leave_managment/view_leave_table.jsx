@@ -26,7 +26,7 @@ const ViewLeaveTable = () => {
     const fetchLeaveCategories = async () => {
         try {
             const response = await fetch(
-                `${API_URL}/v1/hris/leave/getLeaveCategory`
+                `http://localhost:8599/v1/hris/leave/getLeaveCategory`
             );
             const result = await response.json();
             if (result.success) {

@@ -17,7 +17,7 @@ const LeaveRequestPopup = ({ leaveId, onClose }) => {
   const fetchLeaveDetails = async () => {
     try {
       const response = await fetch(
-        `${API_URL}/v1/hris/leave/getleavebyid?id=${leaveId}`
+        `http://localhost:8599/v1/hris/leave/getleavebyid?id=${leaveId}`
       );
       const data = await response.json();
       setLeaveDetails(data);
@@ -52,7 +52,7 @@ const LeaveRequestPopup = ({ leaveId, onClose }) => {
 
     try {
       const response = await fetch(
-        `${API_URL}/v1/hris/leave/updateLeaveStatus?leaveid=${leaveId}`,
+        `http://localhost:8599/v1/hris/leave/updateLeaveStatus?leaveid=${leaveId}`,
         {
           method: "PUT",
           headers: {
