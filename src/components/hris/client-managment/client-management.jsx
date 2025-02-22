@@ -24,7 +24,7 @@ const Emp_Management = () => {
 
     const cards = [
         {
-            title: "Employee Onboarding",
+            title: "Create client",
             count: data.totalWorkforce,
             label: "Total Employees",
             bgColor: "bg-blue-50",
@@ -34,7 +34,7 @@ const Emp_Management = () => {
             onClick: () => navigate("/onboard_new"),
         },
         {
-            title: "View Employee Details",
+            title: "View client & Edit",
             count: data.totalWorkforce,
             label: "Total Employees",
             bgColor: "bg-blue-50",

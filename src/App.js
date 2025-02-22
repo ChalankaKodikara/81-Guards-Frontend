@@ -80,6 +80,8 @@ import Create_Loan from "./components/hris/settings/create_loan.jsx";
 import Emp_Management from "./components/hris/emp_management/emp_management/emp_management.jsx";
 import Job_Posting_Management from "./components/hris/employee_recruitment/job_posting_management.jsx"
 import Collect_Job_Details from "./components/hris/employee_recruitment/collect_job_details.jsx";
+import Checkpoint_management from "./components/hris/checkpoint-managment/checkpoint-management.jsx";
+import Client_management from "./components/hris/client-managment/client-management.jsx";
 
 const AppContent = ({
   isSidebarOpen,
@@ -162,7 +164,24 @@ const AppContent = ({
           />
         )}
         <Routes>
-          <Route path="/login" element={<Login />} />
+        <Route path="/emp-details" element={<Emp_details />} />
+        <Route path="/onboard_new" element={<Onboard_new />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/emp-management" element={<Emp_Management />} />
+        <Route path="/Checkpoint-management" element={<Checkpoint_management/>} />
+        <Route path="/client-management" element={<Client_management/>} />
+
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
           <Route path="/leave-info" element={<Leave />} />
           <Route path="/leave-management" element={<Leave_Management />} />
           <Route path="/leave-request" element={<Leave_Request />} />
@@ -176,7 +195,6 @@ const AppContent = ({
           <Route path="/hr-report" element={<HR_Reports />} />
           <Route path="/leave-reports" element={<Reports />} />
           <Route path="/" element={<Navigate to="/login" />} />
-          <Route path="/emp-details" element={<Emp_details />} />
           {/* <Route path="/emp-onboard" element={<Emp_Onboard />} /> */}
           <Route path="/permission" element={<Permission />} />
           <Route
@@ -185,7 +203,6 @@ const AppContent = ({
           />
 
           {/* employee portal */}
-          <Route path="/home" element={<Home />} />
           <Route path="/reset-pw" element={<Reset_Pw />} />
           <Route path="/user-profile" element={<User_Profile />} />
           <Route path="/emp-dashboard" element={<Emp_Dashboard />} />
@@ -233,7 +250,6 @@ const AppContent = ({
           <Route path="/service-charge" element={<Service_Charge />} />
 
           {/* dlh updates */}
-          <Route path="/onboard_new" element={<Onboard_new />} />
           <Route path="/branch" element={<Branch />} />
           <Route path="/add-employee-type" element={<Employee_Type_Add />} />
           <Route path="/salaray-component-management" element={<Salaray_Component_Management />} />
@@ -257,7 +273,6 @@ const AppContent = ({
           <Route path="/loan-management" element={<Loan_Managemnt />} />
           <Route path="/loan-component" element={<Loan_Component />} />
           <Route path="/create-loan" element={<Create_Loan />} />
-          <Route path="/emp-management" element={<Emp_Management />} />
           <Route path="/job-posting-management" element={<Job_Posting_Management />} />
           <Route path="/collect-job-details" element={<Collect_Job_Details />} />
         </Routes>

@@ -185,6 +185,17 @@ const sidebarData = [
      
     ],
   },
+  {
+    _id: "7",
+    name: "Checkpoints Management",
+    icon: <MdDashboard />,
+    url: "/Checkpoint-management",
+  },{
+    _id: "8",
+    name: "Client Management",
+    icon: <MdDashboard />,
+    url: "/client-management",
+  },
 ];
 
 export default sidebarData;
