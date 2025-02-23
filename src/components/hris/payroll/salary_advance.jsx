@@ -386,7 +386,7 @@ const AllowanceComponent = () => {
           </div>
           <div className="flex items-end">
             <button
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              className="px-4 py-2 bg-yellow-300 text-black rounded hover:bg-blue-600"
               onClick={handleSearch}
             >
               Search
@@ -645,7 +645,7 @@ const AllowanceComponent = () => {
               </button>
               {selectedEmployee.salaryAdvance?.id ? (
                 <button
-                  className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                  className="px-4 py-2 bg-yellow-300 text-black rounded hover:bg-blue-600"
                   onClick={handleUpdate}
                   disabled={isSaving}
                 >
@@ -653,7 +653,7 @@ const AllowanceComponent = () => {
                 </button>
               ) : (
                 <button
-                  className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                  className="px-4 py-2 bg-yellow-300 text-black rounded hover:bg-blue-600"
                   onClick={handleSave}
                   disabled={isSaving}
                 >
@@ -691,7 +691,7 @@ const AllowanceComponent = () => {
             {/* Close Button */}
             <div className="flex justify-center">
               <button
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                className="px-4 py-2 bg-yellow-300 text-black rounded hover:bg-blue-600"
                 onClick={() => setShowPopupMessage(false)}
               >
                 Close
@@ -728,7 +728,7 @@ const AllowanceComponent = () => {
                 No
               </button>
               <button
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                className="px-4 py-2 bg-yellow-300 text-black rounded hover:bg-blue-600"
                 onClick={handleConfirmDelete}
                 disabled={isSaving}
               >

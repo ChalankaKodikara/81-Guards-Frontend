@@ -115,7 +115,7 @@ const LeaveHistory = () => {
                         <button
                             key={index + 1}
                             onClick={() => paginate(index + 1)}
-                            className={`px-4 py-2 rounded ${currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}
+                            className={`px-4 py-2 rounded ${currentPage === index + 1 ? 'bg-yellow-300 text-black' : 'bg-gray-200 text-gray-800'}`}
                         >
                             {index + 1}
                         </button>

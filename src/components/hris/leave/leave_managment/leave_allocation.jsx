@@ -131,7 +131,7 @@ const Leave_Allocation = () => {
                 </Link>
 
                 <div>
-                    <button className="bg-blue-500 text-white p-2 rounded-lg font-semibold">Leave Allocation</button>
+                    <button className="bg-yellow-300 text-black p-2 rounded-lg font-semibold">Leave Allocation</button>
                 </div>
                 <div>
                     <button>Reset Leave</button>
@@ -391,7 +391,7 @@ const Leave_Allocation = () => {
                         Cancel
                     </button>
                     <button
-                        className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                        className="bg-yellow-300 text-black px-4 py-2 rounded-md"
                         onClick={handleSubmit}
                     >
                         Add

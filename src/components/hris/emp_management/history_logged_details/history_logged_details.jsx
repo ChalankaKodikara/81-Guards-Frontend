@@ -162,7 +162,7 @@ const History_Logged_Details = () => {
 
       <div className="flex justify-center mt-4">
         <button
-          className={`px-3 py-1 mx-1 rounded ${currentPage === 1 ? "bg-gray-300" : "bg-blue-500 text-white"}`}
+          className={`px-3 py-1 mx-1 rounded ${currentPage === 1 ? "bg-gray-300" : "bg-yellow-300 text-black"}`}
           disabled={currentPage === 1}
           onClick={() => handlePageChange(currentPage - 1)}
         >
@@ -171,14 +171,14 @@ const History_Logged_Details = () => {
         {Array.from({ length: totalPages }, (_, i) => (
           <button
             key={i}
-            className={`px-3 py-1 mx-1 rounded ${currentPage === i + 1 ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+            className={`px-3 py-1 mx-1 rounded ${currentPage === i + 1 ? "bg-yellow-300 text-black" : "bg-gray-200"}`}
             onClick={() => handlePageChange(i + 1)}
           >
             {i + 1}
           </button>
         ))}
         <button
-          className={`px-3 py-1 mx-1 rounded ${currentPage === totalPages ? "bg-gray-300" : "bg-blue-500 text-white"}`}
+          className={`px-3 py-1 mx-1 rounded ${currentPage === totalPages ? "bg-gray-300" : "bg-yellow-300 text-black"}`}
           disabled={currentPage === totalPages}
           onClick={() => handlePageChange(currentPage + 1)}
         >

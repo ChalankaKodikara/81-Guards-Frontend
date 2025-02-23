@@ -185,7 +185,7 @@ const ClientManagement = () => {
         <h2 className="text-2xl font-bold">Client Management</h2>
         <button
           onClick={() => setShowModal(true)}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition flex items-center gap-2"
+          className="bg-yellow-300 text-black px-4 py-2 rounded hover:bg-blue-600 transition flex items-center gap-2"
         >
           <FaPlus /> Add Client
         </button>
@@ -385,7 +385,7 @@ const ClientManagement = () => {
             {/* Close Button */}
             <div className="flex justify-center">
               <button
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                className="px-4 py-2 bg-yellow-300 text-black rounded hover:bg-blue-600"
                 onClick={() => setShowPopupMessage(false)}
               >
                 Close

@@ -116,7 +116,7 @@ const ServiceChargeComponentManagement = () => {
 
             <div className="flex justify-center">
               <button
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                className="px-4 py-2 bg-yellow-300 text-black rounded hover:bg-blue-600"
                 onClick={() => setShowPopup(false)}
               >
                 Close

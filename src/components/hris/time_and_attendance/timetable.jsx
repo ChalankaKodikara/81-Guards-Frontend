@@ -165,7 +165,7 @@ function TimetableManagement() {
           <div>
             <div className="flex justify-between items-center">
               <button
-                className="px-5 py-2 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-600 w-60"
+                className="px-5 py-2 bg-yellow-300 text-black rounded-md shadow-sm hover:bg-blue-600 w-60"
                 onClick={handleSend}
               >
                 + Create Timetable

@@ -52,7 +52,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-screen bg-[#fff700] p-5 pt-8 shadow-lg 
+      className={`fixed top-0 left-0 h-screen bg-yellow-300 p-5 pt-8 shadow-lg 
         transition-all duration-500 ease-in-out ${
           isOpen ? "w-64" : "w-20"
         } flex flex-col ${isShaking ? "animate-shakeX" : ""}`}
@@ -84,7 +84,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               <li key={module._id} className="mt-1">
                 <div
                   className={`flex items-center p-2 rounded-md cursor-pointer transition-colors duration-300 ease-in-out ${
-                    isModuleSelected ? "bg-white" : "hover:bg-[#01E6FF]"
+                    isModuleSelected ? "bg-white" : "hover:bg-white"
                   } text-black`}
                   onClick={() =>
                     hasSubModules

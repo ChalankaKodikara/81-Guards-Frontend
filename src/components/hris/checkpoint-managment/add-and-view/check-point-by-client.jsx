@@ -340,7 +340,7 @@ const CheckPointByClient = () => {
                   className="mx-auto w-32 h-32 border border-gray-300 p-2"
                 />
                 <button
-                  className="mt-2 bg-blue-500 text-white px-4 py-2 rounded"
+                  className="mt-2 bg-yellow-300 text-black px-4 py-2 rounded"
                   onClick={handleDownloadQR}
                 >
                   Download QR Code

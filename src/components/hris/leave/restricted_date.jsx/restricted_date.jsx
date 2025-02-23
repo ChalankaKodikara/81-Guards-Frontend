@@ -437,7 +437,7 @@ const Restricted_Date = () => {
 
               <button
                 onClick={() => saveDate("Restricted")}
-                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                className="bg-yellow-300 text-black px-4 py-2 rounded-md"
               >
                 Save Restriction
               </button>
@@ -484,7 +484,7 @@ const Restricted_Date = () => {
               </button>
               <button
                 onClick={() => saveDate("Special Day")}
-                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                className="bg-yellow-300 text-black px-4 py-2 rounded-md"
               >
                 Save Special Day
               </button>
@@ -554,7 +554,7 @@ const Restricted_Date = () => {
                 onClick={() => setCurrentPage(page)}
                 className={`px-4 py-2 mx-1 rounded-md ${
                   currentPage === page
-                    ? "bg-blue-500 text-white"
+                    ? "bg-yellow-300 text-black"
                     : "bg-gray-200 hover:bg-gray-300"
                 }`}
               >

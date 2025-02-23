@@ -214,7 +214,7 @@ const EmployeeEdit = ({ employeeNo, onClose }) => {
               </button>
               <button
                 type="submit"
-                className="bg-blue-500 text-white px-4 py-2 rounded"
+                className="bg-yellow-300 text-black px-4 py-2 rounded"
               >
                 Update
               </button>
@@ -236,7 +236,7 @@ const EmployeeEdit = ({ employeeNo, onClose }) => {
               <p className="text-center mb-4">{popupMessage}</p>
               <div className="flex justify-center">
                 <button
-                  className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                  className="px-4 py-2 bg-yellow-300 text-black rounded hover:bg-blue-600"
                   onClick={() => setShowPopup(false)}
                 >
                   Close

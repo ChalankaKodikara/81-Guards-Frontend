@@ -204,7 +204,7 @@ const Create_Leave_Type = () => {
             <p className="text-[26px] mb-8">Leave Management Settings / Add Leave Type</p>
             <div className="flex items-center gap-5">
                 <div>
-                    <button className="bg-blue-500 text-white p-2 rounded-lg font-semibold">Add Leave Type</button>
+                    <button className="bg-yellow-300 text-black p-2 rounded-lg font-semibold">Add Leave Type</button>
                 </div>
 
                 <Link to="/leave-allocation">

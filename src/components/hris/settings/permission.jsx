@@ -141,7 +141,7 @@ const Permissions = () => {
       </div>
       {/* third layer */}
       <div className="mt-5">
-        <div className="px-5 py-2 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-600 w-60">
+        <div className="px-5 py-2 bg-yellow-300 text-black rounded-md shadow-sm hover:bg-blue-600 w-60">
           <div className="flex items-center justify-between">
             <Link to="/create-user-permission">
               <button>Create new permission </button>

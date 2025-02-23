@@ -93,7 +93,7 @@ const Supervisors = () => {
 
       <div className="mt-5">
         <button
-          className="px-5 py-2 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-600 w-60"
+          className="px-5 py-2 bg-yellow-300 text-black rounded-md shadow-sm hover:bg-blue-600 w-60"
           onClick={togglePopup}
         >
           Create Supervisor
@@ -221,7 +221,7 @@ const Supervisors = () => {
                 <div className="flex gap-4 justify-end">
                   <button
                     type="button"
-                    className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                    className="bg-yellow-300 text-black px-4 py-2 rounded-md"
                   >
                     Save
                   </button>

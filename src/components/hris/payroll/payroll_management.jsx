@@ -215,7 +215,7 @@ const PayrollManagement = () => {
               <span className="block font-bold">{card.count}</span>
               <span>{card.label}</span>
             </div>
-            <button className="mt-auto bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600">
+            <button className="mt-auto bg-yellow-300 text-black rounded-lg px-4 py-2 hover:bg-blue-600">
               View
             </button>
           </div>

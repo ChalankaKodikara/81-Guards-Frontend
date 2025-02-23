@@ -146,7 +146,7 @@ const View_Job_Details = ({ onClose }) => {
                                 />
                             </div>
 
-                            <button className="bg-blue-500 text-white px-3 py-2 rounded">
+                            <button className="bg-yellow-300 text-black px-3 py-2 rounded">
                                 <FaRegEye />
                             </button>
                         </div>

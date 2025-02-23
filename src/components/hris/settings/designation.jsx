@@ -229,7 +229,7 @@ const Designation = () => {
 
       <div className="mt-5">
         <button
-          className="px-5 py-2 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-600 w-60"
+          className="px-5 py-2 bg-yellow-300 text-black rounded-md shadow-sm hover:bg-blue-600 w-60"
           onClick={() => {
             setIsEditMode(false); // Disable edit mode
             setCurrentDesignation({}); // Clear current designation
@@ -274,7 +274,7 @@ const Designation = () => {
                 <div className="flex gap-5 justify-start">
                   <button
                     type="submit"
-                    className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2"
+                    className="bg-yellow-300 text-black px-4 py-2 rounded-md mr-2"
                   >
                     {isEditMode ? "Update" : "Save"}
                   </button>
@@ -404,7 +404,7 @@ const Designation = () => {
               {/* Close Button */}
               <div className="flex justify-center">
                 <button
-                  className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                  className="px-4 py-2 bg-yellow-300 text-black rounded hover:bg-blue-600"
                   onClick={() => setShowPopup(false)}
                 >
                   Close

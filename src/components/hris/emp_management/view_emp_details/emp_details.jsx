@@ -111,7 +111,7 @@ const EmployeeTable = () => {
         </select>
         <button
           onClick={applyFilters}
-          className="bg-blue-500 text-white px-4 py-2 rounded flex items-center gap-2"
+          className="bg-yellow-300 text-black px-4 py-2 rounded flex items-center gap-2"
         >
           <CiSearch /> Search
         </button>

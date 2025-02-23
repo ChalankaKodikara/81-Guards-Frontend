@@ -170,7 +170,7 @@ const Absence_Report = () => {
 
         <button
           onClick={handleFetchData}
-          className="px-2 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 w-[100px] flex items-center justify-center gap-2"
+          className="px-2 py-2 bg-yellow-300 text-black rounded hover:bg-blue-600 w-[100px] flex items-center justify-center gap-2"
         >
           <CiSearch />
           Search
@@ -246,7 +246,7 @@ const Absence_Report = () => {
       <div className="flex justify-center mt-4">
         <div className="flex justify-center mt-4">
           <button
-            className={`px-3 py-1 mx-1 rounded ${currentPage === 1 ? "bg-gray-300" : "bg-blue-500 text-white"}`}
+            className={`px-3 py-1 mx-1 rounded ${currentPage === 1 ? "bg-gray-300" : "bg-yellow-300 text-black"}`}
             disabled={currentPage === 1}
             onClick={() => handlePageChange(currentPage - 1)}
           >
@@ -259,7 +259,7 @@ const Absence_Report = () => {
               page <= totalPages && (
                 <button
                   key={page}
-                  className={`px-3 py-1 mx-1 rounded ${currentPage === page ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+                  className={`px-3 py-1 mx-1 rounded ${currentPage === page ? "bg-yellow-300 text-black" : "bg-gray-200"}`}
                   onClick={() => handlePageChange(page)}
                 >
                   {page}
@@ -270,7 +270,7 @@ const Absence_Report = () => {
 
           {currentPage + 5 <= totalPages && (
             <button
-              className="px-3 py-1 mx-1 rounded bg-blue-500 text-white"
+              className="px-3 py-1 mx-1 rounded bg-yellow-300 text-black"
               onClick={() => handlePageChange(currentPage + 5)}
             >
               See More
@@ -278,7 +278,7 @@ const Absence_Report = () => {
           )}
 
           <button
-            className={`px-3 py-1 mx-1 rounded ${currentPage === totalPages ? "bg-gray-300" : "bg-blue-500 text-white"}`}
+            className={`px-3 py-1 mx-1 rounded ${currentPage === totalPages ? "bg-gray-300" : "bg-yellow-300 text-black"}`}
             disabled={currentPage === totalPages}
             onClick={() => handlePageChange(currentPage + 1)}
           >

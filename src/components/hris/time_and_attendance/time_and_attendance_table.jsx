@@ -132,7 +132,7 @@ const Time_And_Attendance_Table = ({ selectedDate }) => {
           ))}
         </select>
         <button
-          className="px-2 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 w-[100px] flex items-center justify-center gap-2"
+          className="px-2 py-2 bg-yellow-300 text-black rounded hover:bg-blue-600 w-[100px] flex items-center justify-center gap-2"
         >
           <CiSearch />
           Search

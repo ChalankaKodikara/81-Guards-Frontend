@@ -174,7 +174,7 @@ const ViewLeaveTable = () => {
                             .map((page) => (
                                 <li
                                     key={page}
-                                    className={`px-3 py-1 border rounded cursor-pointer ${currentPage === page + 1 ? "bg-blue-500 text-white" : "bg-gray-100 text-black"
+                                    className={`px-3 py-1 border rounded cursor-pointer ${currentPage === page + 1 ? "bg-yellow-300 text-black" : "bg-gray-100 text-black"
                                         }`}
                                     onClick={() => handlePageChange(page + 1)}
                                 >

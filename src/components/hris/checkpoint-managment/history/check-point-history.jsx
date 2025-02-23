@@ -266,7 +266,7 @@ const CheckPointHistory = () => {
                 />
                 <button
                   onClick={fetchHistoryByEmployee}
-                  className="bg-blue-500 text-white px-4 py-2 rounded"
+                  className="bg-yellow-300 text-black px-4 py-2 rounded"
                 >
                   Get Scan History
                 </button>
@@ -313,7 +313,7 @@ const CheckPointHistory = () => {
 
                   <button
                     onClick={applyFilters}
-                    className="bg-blue-500 text-white px-4 py-2 rounded"
+                    className="bg-yellow-300 text-black px-4 py-2 rounded"
                   >
                     Apply Filter
                   </button>
@@ -401,7 +401,7 @@ const CheckPointHistory = () => {
               />
               <button
                 onClick={applyFilters}
-                className="bg-blue-500 text-white px-4 py-2 rounded"
+                className="bg-yellow-300 text-black px-4 py-2 rounded"
               >
                 Apply Filter
               </button>

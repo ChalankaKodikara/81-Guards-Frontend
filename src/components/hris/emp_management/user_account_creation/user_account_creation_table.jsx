@@ -128,7 +128,7 @@ const User_account_creation_table = () => {
           onClick={() => handlePageChange(1)}
           className={`mx-1 px-3 py-1 rounded-md ${
             currentPage === 1
-              ? "bg-blue-500 text-white"
+              ? "bg-yellow-300 text-black"
               : "bg-gray-200 text-gray-700"
           }`}
         >
@@ -151,7 +151,7 @@ const User_account_creation_table = () => {
           onClick={() => handlePageChange(i)}
           className={`mx-1 px-3 py-1 rounded-md ${
             currentPage === i
-              ? "bg-blue-500 text-white"
+              ? "bg-yellow-300 text-black"
               : "bg-gray-200 text-gray-700"
           }`}
         >
@@ -174,7 +174,7 @@ const User_account_creation_table = () => {
           onClick={() => handlePageChange(totalPages)}
           className={`mx-1 px-3 py-1 rounded-md ${
             currentPage === totalPages
-              ? "bg-blue-500 text-white"
+              ? "bg-yellow-300 text-black"
               : "bg-gray-200 text-gray-700"
           }`}
         >
@@ -189,7 +189,7 @@ const User_account_creation_table = () => {
   return (
     <div className="p-4">
       <div className="mt-5 mb-5">
-        <div className="px-5 py-2 bg-blue-500 text-white rounded-md shadow-sm w-60 hover:bg-blue-600">
+        <div className="px-5 py-2 bg-yellow-300 text-black rounded-md shadow-sm w-60 hover:bg-blue-600">
           <div
             className="flex items-center justify-between"
             onClick={handleOpenModal}

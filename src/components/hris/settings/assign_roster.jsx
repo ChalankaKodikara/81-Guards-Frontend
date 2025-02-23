@@ -333,7 +333,7 @@ const AssignRooster = () => {
                 <button
                   key={pageNumber}
                   onClick={() => handlePageClick(pageNumber)}
-                  className={`px-4 py-2 rounded ${pageNumber === currentPage ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700"
+                  className={`px-4 py-2 rounded ${pageNumber === currentPage ? "bg-yellow-300 text-black" : "bg-gray-200 text-gray-700"
                     }`}
                 >
                   {pageNumber}
@@ -345,7 +345,7 @@ const AssignRooster = () => {
             {totalPages > 5 && (
               <button
                 onClick={handleSeeMore}
-                className="bg-blue-500 text-white px-4 py-2 rounded"
+                className="bg-yellow-300 text-black px-4 py-2 rounded"
               >
                 See More
               </button>
@@ -538,7 +538,7 @@ const AssignRooster = () => {
               <button onClick={closeAssignRosterModal} className="bg-gray-500 text-white px-4 py-2 rounded mr-2">
                 Cancel
               </button>
-              <button onClick={handleAssignRosterSubmit} className="bg-blue-500 text-white px-4 py-2 rounded">
+              <button onClick={handleAssignRosterSubmit} className="bg-yellow-300 text-black px-4 py-2 rounded">
                 Assign
               </button>
             </div>
@@ -554,7 +554,7 @@ const AssignRooster = () => {
             <p className="text-lg mb-4">Roster timetable assigned successfully.</p>
             <button
               onClick={() => setShowSuccessPopup(false)}  // Close the popup
-              className="bg-blue-500 text-white px-4 py-2 rounded"
+              className="bg-yellow-300 text-black px-4 py-2 rounded"
             >
               OK
             </button>
