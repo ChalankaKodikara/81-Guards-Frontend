@@ -81,7 +81,8 @@ import Emp_Management from "./components/hris/emp_management/emp_management/emp_
 import Job_Posting_Management from "./components/hris/employee_recruitment/job_posting_management.jsx"
 import Collect_Job_Details from "./components/hris/employee_recruitment/collect_job_details.jsx";
 import Checkpoint_management from "./components/hris/checkpoint-managment/checkpoint-management.jsx";
-import Client_management from "./components/hris/client-managment/client-management.jsx";
+import Client from "./components/hris/client-managment/create-client.jsx";
+import Check_point_by_client from "./components/hris/checkpoint-managment/check-point-by-client.jsx";
 
 const AppContent = ({
   isSidebarOpen,
@@ -170,9 +171,9 @@ const AppContent = ({
         <Route path="/home" element={<Home />} />
         <Route path="/emp-management" element={<Emp_Management />} />
         <Route path="/Checkpoint-management" element={<Checkpoint_management/>} />
-        <Route path="/client-management" element={<Client_management/>} />
+        <Route path="/client-management" element={<Client/>} />
+        <Route path="/check_point_by_client" element={<Check_point_by_client/>} />
 
-          
           
         
           

@@ -1,153 +1,73 @@
 import React, { useState, useEffect } from "react";
+import { LuUsers } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
-import {
-    FaFileInvoiceDollar,
-    FaMoneyCheck,
-    FaPercent,
-} from "react-icons/fa";
-import moment from "moment";
-import { FaUsers } from "react-icons/fa";
-import { TbListDetails } from "react-icons/tb";
-import { LiaUserEditSolid } from "react-icons/lia";
 
-const Emp_Management = () => {
-    const API_URL = process.env.REACT_APP_FRONTEND_URL;
+const CheckpointManagement = () => {
+  const [clients, setClients] = useState([]); // Store clients list
+  const navigate = useNavigate(); // For navigation
 
-    const [data, setData] = useState({
-        totalWorkforce: 0,
-        absentWorkforce: 0,
-        allowanceCount: 0, // State fields for additional data
-        deductionCount: 0,
+  useEffect(() => {
+    const fetchClients = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:8590/v1/81guards/client/get"
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        setClients(data); // Store fetched clients
+      } catch (error) {
+        console.error("Error fetching clients:", error);
+      }
+    };
+
+    fetchClients();
+  }, []);
+
+  // Handle navigation to checkpoints based on selected client
+  const handleCardClick = (clientId) => {
+    navigate("/check_point_by_client", {
+      state: { client_id: clientId }, // Pass only the client ID
     });
+  };
+  
+  return (
+    <div className="mx-5 mt-5 font-montserrat">
+      <p className="text-[24px] font-semibold">Check-Point Management</p>
 
-    const navigate = useNavigate();
-
-    const cards = [
-        {
-            title: "Create Checkpoint",
-            count: data.totalWorkforce,
-            label: "Total Employees",
-            bgColor: "bg-blue-50",
-            iconBg: "border-blue-400",
-            icon: <FaUsers
-            className="text-blue-500 text-2xl" />,
-            onClick: () => navigate("/onboard_new"),
-        },
-        {
-            title: "View Checkpoints & QR Codes",
-            count: data.totalWorkforce,
-            label: "Total Employees",
-            bgColor: "bg-blue-50",
-            iconBg: "border-blue-400",
-            icon: <TbListDetails
-            className="text-blue-500 text-2xl" />,
-            onClick: () => navigate("/emp-details"),
-        },
-       
-    ];
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const today = moment().format("YYYY-MM-DD");
-
-                // Fetch attendance stats
-                const response = await fetch(
-                    `http://localhost:8590/v1/hris/employees/getAttendanceStats`
-                );
-                const result = await response.json();
-
-                if (result.success) {
-                    const { totalWorkforce } = result.data;
-                    setData((prevData) => ({ ...prevData, totalWorkforce }));
-                } else {
-                    console.error(
-                        "Error fetching attendance stats:",
-                        result.error || result
-                    );
-                }
-
-                // Fetch absent workforce count
-                const absentResponse = await fetch(
-                    `http://localhost:8590/v1/hris/attendence/getNotAttendCount?startDate=${today}&endDate=${today}`
-                );
-                const absentResult = await absentResponse.json();
-
-                if (absentResult.not_attended_count !== undefined) {
-                    setData((prevData) => ({
-                        ...prevData,
-                        absentWorkforce: absentResult.not_attended_count,
-                    }));
-                } else {
-                    console.error(
-                        "Error fetching absent workforce count:",
-                        absentResult.error || absentResult
-                    );
-                }
-
-                // Fetch allowance and deduction counts
-                const adResponse = await fetch(
-                    `http://localhost:8590/v1/hris/payroll/allowances-deductions-count`
-                );
-                const adResult = await adResponse.json();
-
-                if (
-                    adResult.allowance_count !== undefined &&
-                    adResult.deduction_count !== undefined
-                ) {
-                    setData((prevData) => ({
-                        ...prevData,
-                        allowanceCount: adResult.allowance_count,
-                        deductionCount: adResult.deduction_count,
-                    }));
-                } else {
-                    console.error(
-                        "Error fetching allowances/deductions count:",
-                        adResult.error || adResult
-                    );
-                }
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-        fetchData();
-    }, [API_URL]);
-
-    return (
-        <div className="mx-5 mt-5 font-montserrat">
-            <div>
-                <p className="text-[24px] font-bold mb-5">Employee Management</p>
+      <div className="grid grid-cols-4 gap-6 mt-5">
+        {clients.map((client) => (
+          <div
+            key={client.id}
+            className="shadow-md p-5 rounded-lg border-b-4 border-blue-500 bg-white"
+          >
+            {/* Icon */}
+            <div className="flex items-center gap-4">
+              <div className="flex items-center justify-center rounded-lg p-4 bg-blue-200 text-blue-600 text-2xl w-16 h-16">
+                <LuUsers />
+              </div>
             </div>
-            <div className="grid grid-cols-4 sm:grid-cols-1 lg:grid-cols-3 gap-6">
-                {cards.map((card, index) => (
-                    <div
-                        key={index}
-                        className="rounded-lg border shadow-md p-3 flex flex-col cursor-pointer"
-                        onClick={card.onClick}
-                    >
-                        <div className={`${card.bgColor} p-5 rounded-lg`}>
-                            <div
-                                className={`flex items-center justify-center border-dashed border-2 rounded-full h-16 w-16 mx-auto mb-4 ${card.iconBg}`}
-                            >
-                                {card.icon}
-                            </div>
-                        </div>
-                        <h3 className="text-center font-semibold text-lg mb-2">
-                            {card.title}
-                        </h3>
-                        <div className="text-center text-gray-500 mb-4">
-                           
-                           
-                        </div>
-                        <button className="mt-auto bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600">
-                            View
-                        </button>
-                    </div>
-                ))}
-                <div className="hidden sm:block"></div>
+
+            {/* Client Info */}
+            <div className="mt-2">
+              <p className="text-lg font-semibold">{client.name}</p>
+              <p className="text-gray-600 text-sm">{client.address}</p>
+
+              <div className="mt-3">
+                <button
+                  className="border border-blue-400 bg-white text-blue-400 p-2 rounded-lg text-[15px] hover:bg-blue-400 hover:text-white transition"
+                  onClick={() => handleCardClick(client.id)}
+                  >
+                  View Checkpoints
+                </button>
+              </div>
             </div>
-        </div>
-    );
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
-export default Emp_Management;
+export default CheckpointManagement;

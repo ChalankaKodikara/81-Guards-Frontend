@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
-import Sidebar_Logo from "../../assets/LOGO HRIS 6.png";
+import Sidebar_Logo from "../../assets/login-logo.png";
 import sidebarData from "./sidebar_data";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 
