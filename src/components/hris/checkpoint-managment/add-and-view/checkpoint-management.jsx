@@ -26,12 +26,12 @@ const CheckpointManagement = () => {
   }, []);
 
   // Handle navigation to checkpoints based on selected client
-  const handleCardClick = (clientId) => {
+  const handleCardClick = (client) => {
     navigate("/check_point_by_client", {
-      state: { client_id: clientId }, // Pass only the client ID
+      state: { client }, // Pass entire client object
     });
   };
-  
+
   return (
     <div className="mx-5 mt-5 font-montserrat">
       <p className="text-[24px] font-semibold">Check-Point Management</p>
@@ -57,8 +57,8 @@ const CheckpointManagement = () => {
               <div className="mt-3">
                 <button
                   className="border border-blue-400 bg-white text-blue-400 p-2 rounded-lg text-[15px] hover:bg-blue-400 hover:text-white transition"
-                  onClick={() => handleCardClick(client.id)}
-                  >
+                  onClick={() => handleCardClick(client)}
+                >
                   View Checkpoints
                 </button>
               </div>

@@ -80,9 +80,12 @@ import Create_Loan from "./components/hris/settings/create_loan.jsx";
 import Emp_Management from "./components/hris/emp_management/emp_management/emp_management.jsx";
 import Job_Posting_Management from "./components/hris/employee_recruitment/job_posting_management.jsx"
 import Collect_Job_Details from "./components/hris/employee_recruitment/collect_job_details.jsx";
-import Checkpoint_management from "./components/hris/checkpoint-managment/checkpoint-management.jsx";
+import Checkpoint_management from "./components/hris/checkpoint-managment/add-and-view/checkpoint-management.jsx";
 import Client from "./components/hris/client-managment/create-client.jsx";
-import Check_point_by_client from "./components/hris/checkpoint-managment/check-point-by-client.jsx";
+import Check_point_by_client from "./components/hris/checkpoint-managment/add-and-view/check-point-by-client.jsx";
+import Checkpoint from "./components/hris/checkpoint-managment/checkpoint.jsx";
+import Check_point_by_client_02 from "./components/hris/checkpoint-managment/history/check-point-by-client-02.jsx";
+import Checkpoint_history from "./components/hris/checkpoint-managment/history/check-point-history.jsx";
 
 const AppContent = ({
   isSidebarOpen,
@@ -173,6 +176,9 @@ const AppContent = ({
         <Route path="/Checkpoint-management" element={<Checkpoint_management/>} />
         <Route path="/client-management" element={<Client/>} />
         <Route path="/check_point_by_client" element={<Check_point_by_client/>} />
+        <Route path="/Checkpoint" element={<Checkpoint/>} />
+        <Route path="/check_point_by_client_02" element={<Check_point_by_client_02/>} />
+        <Route path="/Checkpoint-history" element={<Checkpoint_history/>} />
 
           
         

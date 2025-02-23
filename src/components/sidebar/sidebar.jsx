@@ -52,7 +52,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-screen bg-[#001F3F] p-5 pt-8 shadow-lg 
+      className={`fixed top-0 left-0 h-screen bg-[#fff700] p-5 pt-8 shadow-lg 
         transition-all duration-500 ease-in-out ${
           isOpen ? "w-64" : "w-20"
         } flex flex-col ${isShaking ? "animate-shakeX" : ""}`}
@@ -68,19 +68,12 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       }}
     >
       <div className="text-center text-white mb-12">
-        <img
-          src={Sidebar_Logo}
-          alt="Logo"
-          className={`mx-auto transition-transform duration-500 ease-in-out ${
-            isOpen ? "w-24 h-24" : "w-10 h-10"
-          }`}
-        />
         {isOpen && (
-          <h1 className="text-2xl font-semibold transition-opacity duration-500">
-            Casknet.io{" "}
+          <h1 className="text-2m font-semibold transition-opacity text-black duration-500">
+           Casknet Solutions(pvt) LTD
           </h1>
         )}
-      </div> 
+      </div>
       <div className="overflow-y-auto flex-1 custom-scrollbar">
         <ul>
           {sidebarData.map((module) => {
@@ -91,8 +84,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               <li key={module._id} className="mt-1">
                 <div
                   className={`flex items-center p-2 rounded-md cursor-pointer transition-colors duration-300 ease-in-out ${
-                    isModuleSelected ? "bg-[#2495FE]" : "hover:bg-[#01E6FF]"
-                  } text-white`}
+                    isModuleSelected ? "bg-white" : "hover:bg-[#01E6FF]"
+                  } text-black`}
                   onClick={() =>
                     hasSubModules
                       ? toggleSubMenu(module._id)
@@ -130,7 +123,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       <div className="p-4">
         <button
           onClick={handleLogout}
-          className="flex items-center justify-center p-3 w-full text-white bg-[#2495FE] font-bold rounded-lg transition-transform duration-300 hover:scale-105"
+          className="flex items-center justify-center p-3 w-full text-white bg-black font-bold rounded-lg transition-transform duration-300 hover:scale-105"
         >
           Logout
         </button>

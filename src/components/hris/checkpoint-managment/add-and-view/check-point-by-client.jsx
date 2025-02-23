@@ -75,8 +75,9 @@ const CheckPointByClient = () => {
       location_name: "",
       location_address: "",
       employee_ids: [],
+      client_id: client.id, // Ensure client_id is set when adding
     });
-    setSelectedCheckpoint({ employees: [] }); // Ensure employees array is initialized
+    setSelectedCheckpoint({ employees: [] });
     setEditingCheckpoint(null);
     setIsModalOpen(true);
   };
@@ -118,8 +119,8 @@ const CheckPointByClient = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...checkpointData,
-          client_id: client.id,
-          employee_ids: checkpointData.employee_ids, // Include selected employees
+          client_id: client.id, // Ensure client_id is always included
+          employee_ids: checkpointData.employee_ids,
         }),
       });
 
@@ -173,7 +174,7 @@ const CheckPointByClient = () => {
 
         {/* Add Checkpoint Button */}
         <button
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          className="bg-yellow-300 text-black px-4 py-2 rounded hover:bg-black hover:text-white"
           onClick={handleAddCheckpoint}
         >
           + Add Checkpoint
@@ -226,7 +227,6 @@ const CheckPointByClient = () => {
         )}
       </div>
 
-      {/* Add/Edit Checkpoint Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-12 rounded-lg shadow-lg max-w-4xl w-full">

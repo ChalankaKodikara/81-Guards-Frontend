@@ -139,8 +139,8 @@ const Emp_Management = () => {
                            
                            
                         </div>
-                        <button className="mt-auto bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600">
-                            View
+                        <button className="mt-auto bg-yellow-300 text-black rounded-lg px-4 py-2 hover:bg-black hover:text-white">
+                        View
                         </button>
                     </div>
                 ))}

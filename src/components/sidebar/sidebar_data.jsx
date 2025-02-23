@@ -189,7 +189,7 @@ const sidebarData = [
     _id: "7",
     name: "Checkpoints Management",
     icon: <MdDashboard />,
-    url: "/Checkpoint-management",
+    url: "/Checkpoint",
   },{
     _id: "8",
     name: "Client Management",
