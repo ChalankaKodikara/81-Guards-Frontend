@@ -39,77 +39,12 @@ const Emp_Management = () => {
     },
   ];
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const today = moment().format("YYYY-MM-DD");
-
-        // Fetch attendance stats
-        const response = await fetch(
-          `http://localhost:8590/v1/hris/employees/getAttendanceStats`
-        );
-        const result = await response.json();
-
-        if (result.success) {
-          const { totalWorkforce } = result.data;
-          setData((prevData) => ({ ...prevData, totalWorkforce }));
-        } else {
-          console.error(
-            "Error fetching attendance stats:",
-            result.error || result
-          );
-        }
-
-        // Fetch absent workforce count
-        const absentResponse = await fetch(
-          `http://localhost:8590/v1/hris/attendence/getNotAttendCount?startDate=${today}&endDate=${today}`
-        );
-        const absentResult = await absentResponse.json();
-
-        if (absentResult.not_attended_count !== undefined) {
-          setData((prevData) => ({
-            ...prevData,
-            absentWorkforce: absentResult.not_attended_count,
-          }));
-        } else {
-          console.error(
-            "Error fetching absent workforce count:",
-            absentResult.error || absentResult
-          );
-        }
-
-        // Fetch allowance and deduction counts
-        const adResponse = await fetch(
-          `http://localhost:8590/v1/hris/payroll/allowances-deductions-count`
-        );
-        const adResult = await adResponse.json();
-
-        if (
-          adResult.allowance_count !== undefined &&
-          adResult.deduction_count !== undefined
-        ) {
-          setData((prevData) => ({
-            ...prevData,
-            allowanceCount: adResult.allowance_count,
-            deductionCount: adResult.deduction_count,
-          }));
-        } else {
-          console.error(
-            "Error fetching allowances/deductions count:",
-            adResult.error || adResult
-          );
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, [API_URL]);
+  
 
   return (
     <div className="mx-5 mt-5 font-montserrat">
       <div>
-        <p className="text-[24px] font-bold mb-5">Check-Point Management</p>
+        <p className="text-[24px] font-bold mb-5">Check-Point Management </p>
       </div>
       <div className="grid grid-cols-4 sm:grid-cols-1 lg:grid-cols-3 gap-6">
         {cards.map((card, index) => (
