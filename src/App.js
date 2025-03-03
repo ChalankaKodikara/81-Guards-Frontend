@@ -179,6 +179,7 @@ const AppContent = ({
         <Route path="/Checkpoint" element={<Checkpoint/>} />
         <Route path="/check_point_by_client_02" element={<Check_point_by_client_02/>} />
         <Route path="/Checkpoint-history" element={<Checkpoint_history/>} />
+        <Route path="/emp-dashboard" element={<Emp_Dashboard />} />
 
           
         
@@ -189,7 +190,7 @@ const AppContent = ({
           
           
           
-          <Route path="/leave-info" element={<Leave />} />
+          {/* <Route path="/leave-info" element={<Leave />} />
           <Route path="/leave-management" element={<Leave_Management />} />
           <Route path="/leave-request" element={<Leave_Request />} />
           <Route path="/leave-approve" element={<Leave_Approve />} />
@@ -202,24 +203,18 @@ const AppContent = ({
           <Route path="/hr-report" element={<HR_Reports />} />
           <Route path="/leave-reports" element={<Reports />} />
           <Route path="/" element={<Navigate to="/login" />} />
-          {/* <Route path="/emp-onboard" element={<Emp_Onboard />} /> */}
           <Route path="/permission" element={<Permission />} />
           <Route
             path="/history-Login-Details"
             element={<History_login_details />}
           />
-
-          {/* employee portal */}
           <Route path="/reset-pw" element={<Reset_Pw />} />
           <Route path="/user-profile" element={<User_Profile />} />
-          <Route path="/emp-dashboard" element={<Emp_Dashboard />} />
           <Route
             path="/create-user-account"
             element={<User_account_creation />}
           />
           <Route path="/leave-balance-report" element={<Leave_Report />} />
-
-          {/* Time and Attendance */}
           <Route
             path="/time-attendance-dashboard"
             element={<Time_Attendance_Dashboard />}
@@ -232,7 +227,6 @@ const AppContent = ({
           />
           <Route path="/Leave-Request-Popup" element={<LeaveRequestPopup />} />
           <Route path="/hr-report-pdf" element={<Hr_Report_Pdf />} />
-          {/* <Route path="/Modal-popup" element={<Modal />} /> */}
           <Route
             path="/department-comparison"
             element={<Departmental_Comparison />}
@@ -255,8 +249,6 @@ const AppContent = ({
           <Route path="/Designation" element={<Deignation />} />
           <Route path="/Supervisor" element={<Supervisor />} />
           <Route path="/service-charge" element={<Service_Charge />} />
-
-          {/* dlh updates */}
           <Route path="/branch" element={<Branch />} />
           <Route path="/add-employee-type" element={<Employee_Type_Add />} />
           <Route path="/salaray-component-management" element={<Salaray_Component_Management />} />
@@ -281,7 +273,7 @@ const AppContent = ({
           <Route path="/loan-component" element={<Loan_Component />} />
           <Route path="/create-loan" element={<Create_Loan />} />
           <Route path="/job-posting-management" element={<Job_Posting_Management />} />
-          <Route path="/collect-job-details" element={<Collect_Job_Details />} />
+          <Route path="/collect-job-details" element={<Collect_Job_Details />} /> */}
         </Routes>
       </div>
     </div>
