@@ -52,7 +52,7 @@ const EmpOnboard = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/81guards/employees/add`,
+        `https://back-81-guards.casknet.dev/v1/81guards/employees/add`,
         {
           method: "POST",
           headers: {

@@ -44,7 +44,7 @@ const Leave_request_table = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:8590/v1/hris/leave/getleaveapprove1`);
+      const response = await fetch(`https://back-81-guards.casknet.dev/v1/hris/leave/getleaveapprove1`);
       const result = await response.json();
       setLeaveData(result);
     } catch (error) {
@@ -54,7 +54,7 @@ const Leave_request_table = () => {
 
   const fetchDepartments = async () => {
     try {
-      const response = await fetch(`http://localhost:8590/v1/hris/departments`); // Corrected line
+      const response = await fetch(`https://back-81-guards.casknet.dev/v1/hris/departments`); // Corrected line
       const result = await response.json();
       setDepartments(result);
     } catch (error) {
@@ -65,7 +65,7 @@ const Leave_request_table = () => {
   const fetchDesignations = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/hris/designations/getdesignation`
+        `https://back-81-guards.casknet.dev/v1/hris/designations/getdesignation`
       );
       const result = await response.json();
 

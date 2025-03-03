@@ -11,7 +11,7 @@ const LoanComponent = () => {
 
     const fetchLoanRequests = async () => {
         try {
-            const response = await fetch(`http://localhost:8590/v1/hris/loan/loan-requests-by-id?id=${id}`);
+            const response = await fetch(`https://back-81-guards.casknet.dev/v1/hris/loan/loan-requests-by-id?id=${id}`);
             const data = await response.json();
             setLoanRequests(data);
         } catch (error) {
@@ -37,7 +37,7 @@ const LoanComponent = () => {
         if (!selectedRequest) return;
 
         try {
-            const response = await fetch(`http://localhost:8590/v1/hris/loan/approveLoanRequest`, {
+            const response = await fetch(`https://back-81-guards.casknet.dev/v1/hris/loan/approveLoanRequest`, {
                 method: "PUT", // Changed to PUT
                 headers: {
                     "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const LoanComponent = () => {
         if (!selectedRequest) return;
 
         try {
-            const response = await fetch(`http://localhost:8590/v1/hris/loan/rejectLoanRequest`, {
+            const response = await fetch(`https://back-81-guards.casknet.dev/v1/hris/loan/rejectLoanRequest`, {
                 method: "PUT", // Corrected to PUT
                 headers: {
                     "Content-Type": "application/json",

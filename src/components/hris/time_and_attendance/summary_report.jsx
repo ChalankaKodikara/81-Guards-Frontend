@@ -29,7 +29,7 @@ const Summary_Report = () => {
     const fetchDepartments = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8590/v1/hris/designations/getdesignation`
+          `https://back-81-guards.casknet.dev/v1/hris/designations/getdesignation`
         );
         const result = await response.json();
         const departmentsData = Array.isArray(result)
@@ -66,10 +66,10 @@ const Summary_Report = () => {
 
       let endpoint;
       if (userType === "superadmin") {
-        endpoint = `http://localhost:8590/v1/hris/attendence/getLeaveByDateRange?startDate=${formattedStartDate}&endDate=${formattedEndDate}`;
+        endpoint = `https://back-81-guards.casknet.dev/v1/hris/attendence/getLeaveByDateRange?startDate=${formattedStartDate}&endDate=${formattedEndDate}`;
       } else if (userType === "admin") {
         if (supervisorId) {
-          endpoint = `http://localhost:8590/v1/hris/attendence/getLeaveByDateRange?startDate=${formattedStartDate}&endDate=${formattedEndDate}&supervisorId=${supervisorId}`;
+          endpoint = `https://back-81-guards.casknet.dev/v1/hris/attendence/getLeaveByDateRange?startDate=${formattedStartDate}&endDate=${formattedEndDate}&supervisorId=${supervisorId}`;
         } else {
           console.error("Supervisor ID is required for admin users.");
           setIsLoading(false);

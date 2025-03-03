@@ -11,7 +11,7 @@ const PayrollDeduction = () => {
     const fetchCardData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8590/v1/hris/payroll/allowancesanddeductions?type=deduction"
+          "https://back-81-guards.casknet.dev/v1/hris/payroll/allowancesanddeductions?type=deduction"
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

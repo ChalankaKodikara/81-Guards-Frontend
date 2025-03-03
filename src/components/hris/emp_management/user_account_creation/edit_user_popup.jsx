@@ -24,7 +24,7 @@ const EditUserPopup = ({ user, onClose }) => {
     const fetchRoles = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8590/v1/hris/user/roles`
+          `https://back-81-guards.casknet.dev/v1/hris/user/roles`
         );
         if (response.ok) {
           const data = await response.json();
@@ -58,7 +58,7 @@ const EditUserPopup = ({ user, onClose }) => {
   
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/hris/user/updateUser?id=${user.id}`,
+        `https://back-81-guards.casknet.dev/v1/hris/user/updateUser?id=${user.id}`,
         {
           method: "PUT",
           headers: {

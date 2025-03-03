@@ -26,7 +26,7 @@ const Supervisors = () => {
   }, [currentPage, itemsPerPage]);
 
   const fetchSupervisors = () => {
-    fetch(`http://localhost:8590/v1/hris/supervisors/getSupervisors`)
+    fetch(`https://back-81-guards.casknet.dev/v1/hris/supervisors/getSupervisors`)
       .then((response) => response.json())
       .then((result) => {
         if (Array.isArray(result)) {
@@ -48,7 +48,7 @@ const Supervisors = () => {
     );
     if (confirmDelete) {
       fetch(
-        `http://localhost:8590/v1/hris/supervisors/deleteSupervisor?supervisor_id=${id}`,
+        `https://back-81-guards.casknet.dev/v1/hris/supervisors/deleteSupervisor?supervisor_id=${id}`,
         {
           method: "DELETE",
         }

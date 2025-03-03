@@ -53,7 +53,7 @@ const MonthEndPayroll = () => {
     setLoading(true); // Show loader
     try {
       const response = await fetch(
-        "http://localhost:8590/v1/hris/payroll/calculate-payroll",
+        "https://back-81-guards.casknet.dev/v1/hris/payroll/calculate-payroll",
         {
           method: "POST",
           headers: {
@@ -93,7 +93,7 @@ const MonthEndPayroll = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/hris/payroll/calculatepayrollbyemployee?employee_no=${employee_no}&month=${selectedMonth}&year=${selectedYear}`
+        `https://back-81-guards.casknet.dev/v1/hris/payroll/calculatepayrollbyemployee?employee_no=${employee_no}&month=${selectedMonth}&year=${selectedYear}`
       );
       const result = await response.json();
 

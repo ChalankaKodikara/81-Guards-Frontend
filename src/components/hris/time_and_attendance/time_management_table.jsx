@@ -22,7 +22,7 @@ const Time_Management_Table = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8590/v1/hris/timetable/gettimetable`
+          `https://back-81-guards.casknet.dev/v1/hris/timetable/gettimetable`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");

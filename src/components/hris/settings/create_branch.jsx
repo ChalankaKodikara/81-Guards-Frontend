@@ -17,7 +17,7 @@ const CreateBranch = () => {
   const fetchBranches = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8590/v1/hris/branch/all"
+        "https://back-81-guards.casknet.dev/v1/hris/branch/all"
       );
       const data = await response.json();
       setBranches(data);
@@ -41,7 +41,7 @@ const CreateBranch = () => {
     }
 
     try {
-        const response = await fetch("http://localhost:8590/v1/hris/branch/add", {
+        const response = await fetch("https://back-81-guards.casknet.dev/v1/hris/branch/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -80,7 +80,7 @@ const handleUpdateBranch = async () => {
 
     try {
         const response = await fetch(
-            `http://localhost:8590/v1/hris/branch/update/${editBranch.id}`,
+            `https://back-81-guards.casknet.dev/v1/hris/branch/update/${editBranch.id}`,
             {
                 method: "PUT",
                 headers: {
@@ -113,7 +113,7 @@ const handleUpdateBranch = async () => {
 const handleDeleteBranch = async () => {
     try {
         const response = await fetch(
-            `http://localhost:8590/v1/hris/branch/delete/${branchToDelete.id}`,
+            `https://back-81-guards.casknet.dev/v1/hris/branch/delete/${branchToDelete.id}`,
             { method: "DELETE" }
         );
 

@@ -34,7 +34,7 @@ const Create_new_permission = () => {
     if (selectedRoleId) {
       try {
         const response = await fetch(
-          `http://localhost:8590/v1/hris/user/getPermissionsByRoleId?role_id=${selectedRoleId.id}`
+          `https://back-81-guards.casknet.dev/v1/hris/user/getPermissionsByRoleId?role_id=${selectedRoleId.id}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -130,7 +130,7 @@ const Create_new_permission = () => {
     console.log("Sent Data:", postData);
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/hris/user/UpdateRoleBasedPermissions?id=${selectedRoleId.id}`,
+        `https://back-81-guards.casknet.dev/v1/hris/user/UpdateRoleBasedPermissions?id=${selectedRoleId.id}`,
         {
           method: "PUT",
           headers: {

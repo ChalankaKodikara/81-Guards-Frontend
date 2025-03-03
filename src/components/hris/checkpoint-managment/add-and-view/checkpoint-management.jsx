@@ -10,7 +10,7 @@ const CheckpointManagement = () => {
     const fetchClients = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8590/v1/81guards/client/get"
+          "https://back-81-guards.casknet.dev/v1/81guards/client/get"
         );
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

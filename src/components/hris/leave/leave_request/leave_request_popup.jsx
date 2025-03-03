@@ -17,7 +17,7 @@ const LeaveRequestPopup = ({ leaveId, onClose }) => {
   const fetchLeaveDetails = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/hris/leave/getleavebyid?id=${leaveId}`
+        `https://back-81-guards.casknet.dev/v1/hris/leave/getleavebyid?id=${leaveId}`
       );
       const data = await response.json();
       setLeaveDetails(data);
@@ -52,7 +52,7 @@ const LeaveRequestPopup = ({ leaveId, onClose }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/hris/leave/updateLeaveStatus?leaveid=${leaveId}`,
+        `https://back-81-guards.casknet.dev/v1/hris/leave/updateLeaveStatus?leaveid=${leaveId}`,
         {
           method: "PUT",
           headers: {

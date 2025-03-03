@@ -28,7 +28,7 @@ const ServiceChargeFetcher = () => {
                 employee_name: employeeName,
             });
 
-            const response = await fetch(`http://localhost:8590/v1/hris/serviceCharge/getServiceCharge?${queryParams}`);
+            const response = await fetch(`https://back-81-guards.casknet.dev/v1/hris/serviceCharge/getServiceCharge?${queryParams}`);
             const result = await response.json();
 
             if (response.ok) {

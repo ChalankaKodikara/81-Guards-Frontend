@@ -25,7 +25,7 @@ const EmployeeTable = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:8590/v1/81guards/employees/get-all`
+          `https://back-81-guards.casknet.dev/v1/81guards/employees/get-all`
         );
         const data = await response.json();
         if (data && Array.isArray(data.employees)) {

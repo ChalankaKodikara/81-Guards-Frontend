@@ -12,7 +12,7 @@ const LeaveHistory = () => {
         // Fetching the data from the API
         const fetchLeaveHistory = async () => {
             try {
-                const response = await fetch('http://localhost:8590/v1/hris/leave/getleave');
+                const response = await fetch('https://back-81-guards.casknet.dev/v1/hris/leave/getleave');
                 const data = await response.json();
 
                 if (data.success) {

@@ -26,7 +26,7 @@ const User_account_creation_table = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await fetch(`http://localhost:8590/v1/hris/user/getAllUsers`);
+      const response = await fetch(`https://back-81-guards.casknet.dev/v1/hris/user/getAllUsers`);
       if (response.ok) {
         const data = await response.json();
         setUserData(data);
@@ -82,7 +82,7 @@ const User_account_creation_table = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/hris/user/deleteUser?id=${userToDelete.id}`,
+        `https://back-81-guards.casknet.dev/v1/hris/user/deleteUser?id=${userToDelete.id}`,
         {
           method: "DELETE",
         }

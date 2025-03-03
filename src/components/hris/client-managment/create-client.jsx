@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { FaEdit, FaTrash, FaPlus } from "react-icons/fa";
 
-const API_URL = "http://localhost:8590/v1/81guards/client";
-const EMPLOYEE_API = "http://localhost:8590/v1/81guards/employees/get-all";
+const API_URL = "https://back-81-guards.casknet.dev/v1/81guards/client";
+const EMPLOYEE_API = "https://back-81-guards.casknet.dev/v1/81guards/employees/get-all";
 
 const ClientManagement = () => {
   const [clients, setClients] = useState([]);

@@ -23,7 +23,7 @@ const Time_And_Attendance_Table = ({ selectedDate }) => {
       try {
         setLoading(true);
         const response = await fetch(
-          `http://localhost:8590/v1/hris/attendence/searchAttendanceByDate?date=${moment(filterDate).format("YYYY-MM-DD")}`
+          `https://back-81-guards.casknet.dev/v1/hris/attendence/searchAttendanceByDate?date=${moment(filterDate).format("YYYY-MM-DD")}`
         );
         const result = await response.json();
         setAttendanceData(result.data || []);
@@ -40,7 +40,7 @@ const Time_And_Attendance_Table = ({ selectedDate }) => {
 
   // Fetch departments
   useEffect(() => {
-    fetch(`http://localhost:8590/v1/hris/employees/getemployeebasicdetails`)
+    fetch(`https://back-81-guards.casknet.dev/v1/hris/employees/getemployeebasicdetails`)
       .then((response) => response.json())
       .then((data) => {
         const uniqueDepartments = [

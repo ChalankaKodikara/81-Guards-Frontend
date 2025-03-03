@@ -48,7 +48,7 @@ const Permissions = () => {
 
   const fetchRoles = async () => {
     try {
-      const response = await fetch(`http://localhost:8590/v1/hris/user/roles`);
+      const response = await fetch(`https://back-81-guards.casknet.dev/v1/hris/user/roles`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -93,7 +93,7 @@ const Permissions = () => {
   const HandleDelete = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/hris/user/deleteUserRole?role_id=${roleToDelete}`,
+        `https://back-81-guards.casknet.dev/v1/hris/user/deleteUserRole?role_id=${roleToDelete}`,
         {
           method: "DELETE",
         }

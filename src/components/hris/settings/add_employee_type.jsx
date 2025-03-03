@@ -20,7 +20,7 @@ const EmployeeTypeManager = () => {
     const fetchEmployeeTypes = async () => {
         try {
             const response = await fetch(
-                "http://localhost:8590/v1/hris/employmentType/all"
+                "https://back-81-guards.casknet.dev/v1/hris/employmentType/all"
             );
             const data = await response.json();
             if (data.success) {
@@ -46,7 +46,7 @@ const EmployeeTypeManager = () => {
       
         try {
           const response = await fetch(
-            "http://localhost:8590/v1/hris/employmentType/add",
+            "https://back-81-guards.casknet.dev/v1/hris/employmentType/add",
             {
               method: "POST",
               headers: {
@@ -90,7 +90,7 @@ const EmployeeTypeManager = () => {
       
         try {
           const response = await fetch(
-            `http://localhost:8590/v1/hris/employmentType/update/${editType.id}`,
+            `https://back-81-guards.casknet.dev/v1/hris/employmentType/update/${editType.id}`,
             {
               method: "PUT",
               headers: {
@@ -128,7 +128,7 @@ const EmployeeTypeManager = () => {
     const handleDeleteEmployeeType = async () => {
         try {
           const response = await fetch(
-            `http://localhost:8590/v1/hris/employmentType/delete/${typeToDelete.id}`,
+            `https://back-81-guards.casknet.dev/v1/hris/employmentType/delete/${typeToDelete.id}`,
             { method: "DELETE" }
           );
       

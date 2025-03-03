@@ -52,7 +52,7 @@ const Deduction_Component = () => {
       }
 
       const response = await fetch(
-        `http://localhost:8590/v1/hris/payroll/deduction-status?${params}`
+        `https://back-81-guards.casknet.dev/v1/hris/payroll/deduction-status?${params}`
       );
 
       if (!response.ok) {
@@ -173,7 +173,7 @@ const Deduction_Component = () => {
       };
 
       const response = await fetch(
-        `http://localhost:8590/v1/hris/payroll/adddeductiontoemployee`,
+        `https://back-81-guards.casknet.dev/v1/hris/payroll/adddeductiontoemployee`,
         {
           method: "POST",
           headers: {
@@ -223,7 +223,7 @@ const Deduction_Component = () => {
       };
 
       const response = await fetch(
-        `http://localhost:8590/v1/hris/payroll/updatedeductiontoemployee`,
+        `https://back-81-guards.casknet.dev/v1/hris/payroll/updatedeductiontoemployee`,
         {
           method: "PUT",
           headers: {
@@ -263,7 +263,7 @@ const Deduction_Component = () => {
       };
 
       const response = await fetch(
-        `http://localhost:8590/v1/hris/payroll/updatedeductiontoemployee`,
+        `https://back-81-guards.casknet.dev/v1/hris/payroll/updatedeductiontoemployee`,
         {
           method: "PUT",
           headers: {
@@ -299,7 +299,7 @@ const Deduction_Component = () => {
         });
 
         const response = await fetch(
-          `http://localhost:8590/v1/hris/payroll/value?${params}`
+          `https://back-81-guards.casknet.dev/v1/hris/payroll/value?${params}`
         );
         if (!response.ok) {
           throw new Error(`Failed to fetch value: ${response.statusText}`);

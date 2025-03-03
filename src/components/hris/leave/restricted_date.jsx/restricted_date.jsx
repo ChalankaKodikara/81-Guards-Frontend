@@ -41,7 +41,7 @@ const Restricted_Date = () => {
     const fetchRestrictedDates = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8590/v1/hris/daterestriction/getAllDataRestrictions`
+          `https://back-81-guards.casknet.dev/v1/hris/daterestriction/getAllDataRestrictions`
         );
         const data = await response.json();
         const formattedData = data.map((item) => ({
@@ -96,7 +96,7 @@ const Restricted_Date = () => {
     };
 
     try {
-      const response = await fetch(`http://localhost:8590/v1/hris/leave/addSpecialDay`, {
+      const response = await fetch(`https://back-81-guards.casknet.dev/v1/hris/leave/addSpecialDay`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -148,7 +148,7 @@ const Restricted_Date = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/hris/leave/addRestrictedDate`,
+        `https://back-81-guards.casknet.dev/v1/hris/leave/addRestrictedDate`,
         {
           method: "POST",
           headers: {
@@ -194,7 +194,7 @@ const Restricted_Date = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/hris/daterestriction/deleteDataRestrictions?id=${selectedRid}`,
+        `https://back-81-guards.casknet.dev/v1/hris/daterestriction/deleteDataRestrictions?id=${selectedRid}`,
         {
           method: "DELETE",
           headers: {

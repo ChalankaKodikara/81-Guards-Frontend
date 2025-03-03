@@ -12,7 +12,7 @@ const LoanManagement = () => {
     // Fetch loan types from the API
     const fetchLoanTypes = async () => {
         try {
-            const response = await fetch(`http://localhost:8590/v1/hris/loan/loan-types`);
+            const response = await fetch(`https://back-81-guards.casknet.dev/v1/hris/loan/loan-types`);
             const data = await response.json();
             console.log("Fetched Loan Types:", data); // Debugging log
             setLoanTypes(data);

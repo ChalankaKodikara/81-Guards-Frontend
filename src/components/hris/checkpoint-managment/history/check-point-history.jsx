@@ -37,7 +37,7 @@ const CheckPointHistory = () => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/81guards/checkpoints/getCheckpointsByClient?client_id=${client.id}`
+        `https://back-81-guards.casknet.dev/v1/81guards/checkpoints/getCheckpointsByClient?client_id=${client.id}`
       );
       if (!response.ok) throw new Error("Failed to fetch checkpoints");
       const data = await response.json();
@@ -57,7 +57,7 @@ const CheckPointHistory = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/81guards/checkpoints/getcheckpointhistory?checkpoint_id=${checkpoint.id}`
+        `https://back-81-guards.casknet.dev/v1/81guards/checkpoints/getcheckpointhistory?checkpoint_id=${checkpoint.id}`
       );
       if (!response.ok) throw new Error("Failed to fetch checkpoint history");
 
@@ -90,7 +90,7 @@ const CheckPointHistory = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/81guards/checkpoints/getScansByEmployee?employee_no=${employeeSearch}`
+        `https://back-81-guards.casknet.dev/v1/81guards/checkpoints/getScansByEmployee?employee_no=${employeeSearch}`
       );
       if (!response.ok) throw new Error("Failed to fetch history by employee");
 

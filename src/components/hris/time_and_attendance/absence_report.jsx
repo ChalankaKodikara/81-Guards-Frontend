@@ -28,9 +28,9 @@ const Absence_Report = () => {
       let endpoint;
 
       if (userType === "superadmin") {
-        endpoint = `http://localhost:8590/v1/hris/attendence/getNotAttend?startDate=${formattedStartDate}&endDate=${formattedEndDate}`;
+        endpoint = `https://back-81-guards.casknet.dev/v1/hris/attendence/getNotAttend?startDate=${formattedStartDate}&endDate=${formattedEndDate}`;
       } else if (userType === "admin" && supervisorId) {
-        endpoint = `http://localhost:8590/v1/hris/attendence/getNotAttendBySupervisor?startDate=${formattedStartDate}&endDate=${formattedEndDate}&supervisorId=${supervisorId}`;
+        endpoint = `https://back-81-guards.casknet.dev/v1/hris/attendence/getNotAttendBySupervisor?startDate=${formattedStartDate}&endDate=${formattedEndDate}&supervisorId=${supervisorId}`;
       } else {
         console.error("Invalid user type or missing supervisor ID.");
         return;

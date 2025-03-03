@@ -38,7 +38,7 @@ const Designation = () => {
   }, []);
 
   const fetchDesignations = () => {
-    fetch(`http://localhost:8590/v1/hris/designations/getdesignation`)
+    fetch(`https://back-81-guards.casknet.dev/v1/hris/designations/getdesignation`)
       .then((response) => response.json())
       .then((result) => {
         if (Array.isArray(result)) {
@@ -82,8 +82,8 @@ const Designation = () => {
     };
 
     const url = isEditMode
-      ? `http://localhost:8590/v1/hris/designations/updatedesignation?id=${currentDesignation.id}`
-      : `http://localhost:8590/v1/hris/designations/adddesignation`;
+      ? `https://back-81-guards.casknet.dev/v1/hris/designations/updatedesignation?id=${currentDesignation.id}`
+      : `https://back-81-guards.casknet.dev/v1/hris/designations/adddesignation`;
 
     const method = isEditMode ? "PUT" : "POST";
 
@@ -168,7 +168,7 @@ const Designation = () => {
       "Are you sure you want to delete this designation?"
     );
     if (confirmDelete) {
-      fetch(`http://localhost:8590/v1/hris/designations/deletedesignation?id=${id}`, {
+      fetch(`https://back-81-guards.casknet.dev/v1/hris/designations/deletedesignation?id=${id}`, {
         method: "DELETE",
       })
         .then((response) => {

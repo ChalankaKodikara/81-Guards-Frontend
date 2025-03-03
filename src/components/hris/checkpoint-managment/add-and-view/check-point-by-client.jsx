@@ -43,7 +43,7 @@ const CheckPointByClient = () => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/81guards/checkpoints/getCheckpointsByClient?client_id=${client.id}`
+        `https://back-81-guards.casknet.dev/v1/81guards/checkpoints/getCheckpointsByClient?client_id=${client.id}`
       );
       if (!response.ok) throw new Error("Failed to fetch checkpoints");
       const data = await response.json();
@@ -59,7 +59,7 @@ const CheckPointByClient = () => {
   const fetchEmployees = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8590/v1/81guards/employees/get-all"
+        "https://back-81-guards.casknet.dev/v1/81guards/employees/get-all"
       );
       if (!response.ok) throw new Error("Failed to fetch employees");
       const data = await response.json();
@@ -111,8 +111,8 @@ const CheckPointByClient = () => {
     try {
       const method = editingCheckpoint ? "PUT" : "POST";
       const endpoint = editingCheckpoint
-        ? `http://localhost:8590/v1/81guards/checkpoints/update?checkpoint_id=${editingCheckpoint.id}`
-        : `http://localhost:8590/v1/81guards/checkpoints/addCheckpoint`;
+        ? `https://back-81-guards.casknet.dev/v1/81guards/checkpoints/update?checkpoint_id=${editingCheckpoint.id}`
+        : `https://back-81-guards.casknet.dev/v1/81guards/checkpoints/addCheckpoint`;
 
       const response = await fetch(endpoint, {
         method,
@@ -137,7 +137,7 @@ const CheckPointByClient = () => {
   const handleViewMore = async (checkpoint) => {
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/81guards/checkpoints/getCheckpointWithEmployees?checkpoint_id=${checkpoint.id}`
+        `https://back-81-guards.casknet.dev/v1/81guards/checkpoints/getCheckpointWithEmployees?checkpoint_id=${checkpoint.id}`
       );
       if (!response.ok) throw new Error("Failed to fetch checkpoint details");
       const data = await response.json();
@@ -146,7 +146,7 @@ const CheckPointByClient = () => {
 
       // Fetch and Set QR Code URL
       const qrCodeResponse = await fetch(
-        `http://localhost:8590/v1/81guards/checkpoints/getCheckpointQRCode?checkpoint_id=${checkpoint.id}`
+        `https://back-81-guards.casknet.dev/v1/81guards/checkpoints/getCheckpointQRCode?checkpoint_id=${checkpoint.id}`
       );
       if (qrCodeResponse.ok) {
         setQrCodeUrl(qrCodeResponse.url);

@@ -53,7 +53,7 @@ const Emp_Management = () => {
 
                 // Fetch attendance stats
                 const response = await fetch(
-                    `http://localhost:8590/v1/hris/employees/getAttendanceStats`
+                    `https://back-81-guards.casknet.dev/v1/hris/employees/getAttendanceStats`
                 );
                 const result = await response.json();
 
@@ -69,7 +69,7 @@ const Emp_Management = () => {
 
                 // Fetch absent workforce count
                 const absentResponse = await fetch(
-                    `http://localhost:8590/v1/hris/attendence/getNotAttendCount?startDate=${today}&endDate=${today}`
+                    `https://back-81-guards.casknet.dev/v1/hris/attendence/getNotAttendCount?startDate=${today}&endDate=${today}`
                 );
                 const absentResult = await absentResponse.json();
 
@@ -87,7 +87,7 @@ const Emp_Management = () => {
 
                 // Fetch allowance and deduction counts
                 const adResponse = await fetch(
-                    `http://localhost:8590/v1/hris/payroll/allowances-deductions-count`
+                    `https://back-81-guards.casknet.dev/v1/hris/payroll/allowances-deductions-count`
                 );
                 const adResult = await adResponse.json();
 

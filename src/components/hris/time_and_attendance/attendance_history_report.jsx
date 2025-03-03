@@ -25,7 +25,7 @@ const Attendance_History_Report = () => {
 
       try {
         const response = await fetch(
-          `http://localhost:8590/v1/hris/attendence/getAttendanceHistroy?startDate=${formattedStartDate}&endDate=${formattedEndDate}`
+          `https://back-81-guards.casknet.dev/v1/hris/attendence/getAttendanceHistroy?startDate=${formattedStartDate}&endDate=${formattedEndDate}`
         );
         const result = await response.json();
 

@@ -9,7 +9,7 @@ const ServiceChargeComponentManagement = () => {
 
   const API_URL =
     process.env.REACT_APP_FRONTEND_URL ||
-    "http://localhost:8590"; // Fallback URL if not provided
+    "https://back-81-guards.casknet.dev"; // Fallback URL if not provided
 
   // Fetch Service Charge Data
   const fetchServiceChargeData = async () => {
@@ -17,7 +17,7 @@ const ServiceChargeComponentManagement = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8590/v1/hris/serviceCharge/getServiceCharge`,
+        `https://back-81-guards.casknet.dev/v1/hris/serviceCharge/getServiceCharge`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`, // Add token to headers
