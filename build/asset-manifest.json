@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.23faecd7.css",
+    "main.js": "/static/js/main.03cd84ed.js",
+    "static/js/213.72dfd152.chunk.js": "/static/js/213.72dfd152.chunk.js",
+    "static/js/667.d1800ee5.chunk.js": "/static/js/667.d1800ee5.chunk.js",
+    "static/js/453.1a698034.chunk.js": "/static/js/453.1a698034.chunk.js",
+    "static/media/login-right-side.jpg": "/static/media/login-right-side.ba47400299321993d443.jpg",
+    "static/media/empty.png": "/static/media/empty.52de844d30018739ffd3.png",
+    "static/media/logo.png": "/static/media/logo.ecb468034309906b8bc2.png",
+    "static/media/login-logo.png": "/static/media/login-logo.e4aa32e79100a9d26496.png",
+    "static/media/LOGO HRIS 6.png": "/static/media/LOGO HRIS 6.555978c25c323e3c9c96.png",
+    "static/media/hi.png": "/static/media/hi.601bcfdcbe705abe899f.png",
+    "index.html": "/index.html",
+    "main.23faecd7.css.map": "/static/css/main.23faecd7.css.map",
+    "main.03cd84ed.js.map": "/static/js/main.03cd84ed.js.map",
+    "213.72dfd152.chunk.js.map": "/static/js/213.72dfd152.chunk.js.map",
+    "667.d1800ee5.chunk.js.map": "/static/js/667.d1800ee5.chunk.js.map",
+    "453.1a698034.chunk.js.map": "/static/js/453.1a698034.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.23faecd7.css",
+    "static/js/main.03cd84ed.js"
+  ]
+}

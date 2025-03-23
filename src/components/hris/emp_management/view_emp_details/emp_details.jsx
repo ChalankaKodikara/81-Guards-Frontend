@@ -16,7 +16,7 @@ const EmployeeTable = () => {
   const [selectedEmployeeNo, setSelectedEmployeeNo] = useState(null);
   const [showEditModal, setShowEditModal] = useState(false);
   const userId = Cookies.get("employee_no");
-  const rowsPerPage = 10;
+  const [rowsPerPage, setRowsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
@@ -70,6 +70,7 @@ const EmployeeTable = () => {
   const totalPages = filteredEmployees.length
     ? Math.ceil(filteredEmployees.length / rowsPerPage)
     : 1;
+
   const currentRows = Array.isArray(filteredEmployees)
     ? filteredEmployees.slice(
         (currentPage - 1) * rowsPerPage,
@@ -78,7 +79,7 @@ const EmployeeTable = () => {
     : [];
 
   return (
-    <div className="p-6 bg-white shadow rounded-lg overflow-y-auto h-[500px]">
+    <div className="p-6 bg-white shadow rounded-lg overflow-y-auto h-[600px]">
       <h2 className="text-xl font-semibold text-gray-700 mb-4">
         Employee List
       </h2>
@@ -116,42 +117,110 @@ const EmployeeTable = () => {
           <CiSearch /> Search
         </button>
       </div>
+
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <table className="w-full border-collapse bg-white text-left text-sm">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="px-4 py-2">ID</th>
-              <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">NIC</th>
-              <th className="px-4 py-2">Department</th>
-              <th className="px-4 py-2">Designation</th>
-              <th className="px-4 py-2">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentRows.map((emp) => (
-              <tr key={emp.employee_no} className="border-t">
-                <td className="px-4 py-2">{emp.employee_no}</td>
-                <td className="px-4 py-2">{emp.name}</td>
-                <td className="px-4 py-2">{emp.nic}</td>
-                <td className="px-4 py-2">{emp.department}</td>
-                <td className="px-4 py-2">{emp.designation}</td>
-                <td className="px-4 py-2 flex gap-3">
-                  <LuEye className="cursor-pointer" />
-                  <FaEdit
-                    className="cursor-pointer"
-                    onClick={() => {
-                      setSelectedEmployeeNo(emp.employee_no);
-                      setShowEditModal(true);
-                    }}
-                  />
-                </td>
+        <>
+          <table className="w-full border-collapse bg-white text-left text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="px-4 py-2">ID</th>
+                <th className="px-4 py-2">Name</th>
+                <th className="px-4 py-2">NIC</th>
+                <th className="px-4 py-2">Department</th>
+                <th className="px-4 py-2">Designation</th>
+                <th className="px-4 py-2">Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {currentRows.map((emp) => (
+                <tr key={emp.employee_no} className="border-t">
+                  <td className="px-4 py-2">{emp.employee_no}</td>
+                  <td className="px-4 py-2">{emp.name}</td>
+                  <td className="px-4 py-2">{emp.nic}</td>
+                  <td className="px-4 py-2">{emp.department}</td>
+                  <td className="px-4 py-2">{emp.designation}</td>
+                  <td className="px-4 py-2 flex gap-3">
+                    <LuEye className="cursor-pointer" />
+                    <FaEdit
+                      className="cursor-pointer"
+                      onClick={() => {
+                        setSelectedEmployeeNo(emp.employee_no);
+                        setShowEditModal(true);
+                      }}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          {/* Pagination Controls */}
+          <div className="flex justify-between items-center mt-4">
+            <p className="text-sm text-gray-600">
+              Showing {(currentPage - 1) * rowsPerPage + 1} -{" "}
+              {Math.min(currentPage * rowsPerPage, filteredEmployees.length)} of{" "}
+              {filteredEmployees.length}
+            </p>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className="px-3 py-1 border rounded disabled:opacity-50"
+              >
+                Previous
+              </button>
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentPage(index + 1)}
+                  className={`px-3 py-1 border rounded ${
+                    currentPage === index + 1 ? "bg-yellow-300" : ""
+                  }`}
+                >
+                  {index + 1}
+                </button>
+              ))}
+              <button
+                onClick={() =>
+                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                }
+                disabled={currentPage === totalPages}
+                className="px-3 py-1 border rounded disabled:opacity-50"
+              >
+                Next
+              </button>
+
+              {/* Rows Per Page Dropdown */}
+              <select
+                value={rowsPerPage}
+                onChange={(e) => {
+                  setRowsPerPage(parseInt(e.target.value));
+                  setCurrentPage(1);
+                }}
+                className="ml-2 border p-1 rounded"
+              >
+                <option value={5}>5</option>
+                <option value={10}>10</option>
+                <option value={20}>20</option>
+                <option value={50}>50</option>
+                <option value={100}>100</option>
+              </select>
+
+              {/* Show All Button */}
+              <button
+                onClick={() => {
+                  setRowsPerPage(filteredEmployees.length);
+                  setCurrentPage(1);
+                }}
+                className="ml-2 px-3 py-1 bg-blue-500 text-white rounded"
+              >
+                Show All
+              </button>
+            </div>
+          </div>
+        </>
       )}
 
       {/* Edit Employee Modal */}
