@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { FaEdit, FaTrash, FaPlus } from "react-icons/fa";
 
-const API_URL = "https://back-81-guards.casknet.dev/v1/81guards/client";
-const EMPLOYEE_API = "https://back-81-guards.casknet.dev/v1/81guards/employees/get-all";
+const API_URL = "http://localhost:8590";
+const EMPLOYEE_API =
+  "https://back-81-guards.casknet.dev/v1/81guards/employees/get-all";
 
 const ClientManagement = () => {
   const [clients, setClients] = useState([]);
@@ -18,7 +19,7 @@ const ClientManagement = () => {
     phone: "",
     address: "",
     employee_numbers: [],
-  });
+  }); 
 
   const [errors, setErrors] = useState({});
   const [showPopupMessage, setShowPopupMessage] = useState(false);
@@ -29,6 +30,17 @@ const ClientManagement = () => {
     fetchClients();
     fetchEmployees();
   }, []);
+
+  // Add these states at the top:
+  const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(5); // Default rows per page
+
+  // Calculate paginated data
+  const totalPages = Math.ceil(clients.length / rowsPerPage);
+  const paginatedClients = clients.slice(
+    (currentPage - 1) * rowsPerPage,
+    currentPage * rowsPerPage
+  );
 
   const fetchClients = async () => {
     try {
@@ -192,6 +204,7 @@ const ClientManagement = () => {
       </div>
 
       {/* Client Table */}
+      {/* Client Table */}
       <table className="w-full border-collapse bg-white text-left text-sm">
         <thead className="bg-gray-100">
           <tr>
@@ -204,8 +217,8 @@ const ClientManagement = () => {
           </tr>
         </thead>
         <tbody>
-          {clients.length > 0 ? (
-            clients.map((client) => (
+          {paginatedClients.length > 0 ? (
+            paginatedClients.map((client) => (
               <tr key={client.id} className="border-t">
                 <td className="px-4 py-2">{client.id}</td>
                 <td className="px-4 py-2">{client.name}</td>
@@ -233,6 +246,72 @@ const ClientManagement = () => {
           )}
         </tbody>
       </table>
+
+      {/* Pagination Controls */}
+      {clients.length > 0 && (
+        <div className="flex justify-between items-center mt-4">
+          <p className="text-sm text-gray-600">
+            Showing {(currentPage - 1) * rowsPerPage + 1} -{" "}
+            {Math.min(currentPage * rowsPerPage, clients.length)} of{" "}
+            {clients.length}
+          </p>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className="px-3 py-1 border rounded disabled:opacity-50"
+            >
+              Previous
+            </button>
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentPage(index + 1)}
+                className={`px-3 py-1 border rounded ${
+                  currentPage === index + 1 ? "bg-yellow-300" : ""
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+            <button
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
+              disabled={currentPage === totalPages}
+              className="px-3 py-1 border rounded disabled:opacity-50"
+            >
+              Next
+            </button>
+
+            {/* Rows Per Page */}
+            <select
+              value={rowsPerPage}
+              onChange={(e) => {
+                setRowsPerPage(parseInt(e.target.value));
+                setCurrentPage(1); // Reset to first page
+              }}
+              className="ml-2 border p-1 rounded"
+            >
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={20}>20</option>
+              <option value={50}>50</option>
+            </select>
+
+            {/* Show All */}
+            <button
+              onClick={() => {
+                setRowsPerPage(clients.length);
+                setCurrentPage(1);
+              }}
+              className="ml-2 px-3 py-1 bg-blue-500 text-white rounded"
+            >
+              Show All
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Add / Edit Client Modal */}
       {showModal && (
